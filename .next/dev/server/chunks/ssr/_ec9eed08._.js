@@ -219,6 +219,34 @@ const REVIEWS = [
         rating: 5,
         text: 'Professioneel team met passie voor hun vak.',
         date: 'Februari 2024'
+    },
+    {
+        id: '4',
+        name: 'S. Jansen',
+        rating: 5,
+        text: 'Geweldige service en eerlijk advies. De vloer is heerlijk warm.',
+        date: 'April 2024'
+    },
+    {
+        id: '5',
+        name: 'P. van der Meer',
+        rating: 5,
+        text: 'Afspraken nagekomen en keurig gewerkt. Een aanrader!',
+        date: 'Mei 2024'
+    },
+    {
+        id: '6',
+        name: 'L. Koster',
+        rating: 5,
+        text: 'Vriendelijke monteurs die weten wat ze doen. Top resultaat.',
+        date: 'Juni 2024'
+    },
+    {
+        id: '7',
+        name: 'K. Willems',
+        rating: 5,
+        text: 'Van offerte tot oplevering verliep alles vlekkeloos.',
+        date: 'Juli 2024'
     }
 ];
 }),

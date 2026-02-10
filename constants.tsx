@@ -79,4 +79,8 @@ export const REVIEWS: Review[] = [
   { id: '1', name: 'Jan de Vries', rating: 5, text: 'Vakwerk! Snel gefreesd en alles netjes achtergelaten.', date: 'Januari 2024' },
   { id: '2', name: 'M. Bakker', rating: 5, text: 'Zeer tevreden over de Fermacell montage. Top communicatie.', date: 'Maart 2024' },
   { id: '3', name: 'R. Simons', rating: 5, text: 'Professioneel team met passie voor hun vak.', date: 'Februari 2024' },
+  { id: '4', name: 'S. Jansen', rating: 5, text: 'Geweldige service en eerlijk advies. De vloer is heerlijk warm.', date: 'April 2024' },
+  { id: '5', name: 'P. van der Meer', rating: 5, text: 'Afspraken nagekomen en keurig gewerkt. Een aanrader!', date: 'Mei 2024' },
+  { id: '6', name: 'L. Koster', rating: 5, text: 'Vriendelijke monteurs die weten wat ze doen. Top resultaat.', date: 'Juni 2024' },
+  { id: '7', name: 'K. Willems', rating: 5, text: 'Van offerte tot oplevering verliep alles vlekkeloos.', date: 'Juli 2024' },
 ];

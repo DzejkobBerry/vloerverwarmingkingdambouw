@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import ScrollReveal from '../components/ScrollReveal';
 import { 
@@ -14,17 +14,129 @@ import {
   Trophy, 
   Smile,
   ChevronRight,
+  ChevronLeft,
+  Quote,
   Star,
   CheckCircle,
   Plus,
   Minus,
-  Phone
+  Phone,
+  Volume2,
+  VolumeX
 } from 'lucide-react';
 import { SERVICES, REVIEWS, PROCESS, FAQS } from '../constants';
+
+const BackgroundMusic = () => {
+  // Generate ID only on client side to avoid hydration mismatch
+  const [playerId, setPlayerId] = useState<string>("");
+
+  useEffect(() => {
+    setPlayerId(`youtube-player-${Math.random().toString(36).substr(2, 9)}`);
+  }, []);
+
+  useEffect(() => {
+    if (!playerId) return; // Wait for client-side ID generation
+
+    let playerInstance: any = null;
+
+    const initPlayer = () => {
+      if ((window as any).YT && (window as any).YT.Player) {
+        playerInstance = new (window as any).YT.Player(playerId, {
+          height: '1',
+          width: '1',
+          videoId: 'ElDaTAueHHo',
+          playerVars: {
+            'autoplay': 1,
+            'controls': 0,
+            'loop': 1,
+            'playlist': 'ElDaTAueHHo',
+            'playsinline': 1,
+            'enablejsapi': 1,
+            'origin': window.location.origin
+          },
+          events: {
+            'onReady': (event: any) => {
+              event.target.setVolume(15);
+              event.target.playVideo();
+            }
+          }
+        });
+      }
+    };
+
+    if (!(window as any).YT) {
+      if (!document.querySelector('script[src="https://www.youtube.com/iframe_api"]')) {
+        const tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
+      }
+      // Append to existing callback or create new
+      const oldCallback = (window as any).onYouTubeIframeAPIReady;
+      (window as any).onYouTubeIframeAPIReady = () => {
+        if (oldCallback) oldCallback();
+        initPlayer();
+      };
+    } else {
+      initPlayer();
+    }
+
+    // NUCLEAR CLEANUP
+    return () => {
+      // 1. Try API destroy
+      if (playerInstance && typeof playerInstance.destroy === 'function') {
+        try { playerInstance.destroy(); } catch (e) { console.error("API destroy failed", e); }
+      }
+      
+      // 2. Force DOM removal of the specific element if it still exists
+      const element = document.getElementById(playerId);
+      if (element) {
+        element.remove();
+      }
+
+      // 3. Fallback: Remove any iframe that might have replaced our div but kept the ID
+      const frame = document.querySelector(`iframe[id="${playerId}"]`);
+      if (frame) {
+        frame.remove();
+      }
+    };
+  }, [playerId]);
+
+  // Don't render anything until we have a client-side ID
+  if (!playerId) return null;
+
+  // Render a div with the unique ID
+  return (
+    <div className="absolute top-0 left-0 w-px h-px opacity-0 pointer-events-none overflow-hidden">
+      <div id={playerId} />
+    </div>
+  );
+};
 
 export default function Home() {
   const router = useRouter();
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const [currentReview, setCurrentReview] = useState(0);
+  const [isMusicPlaying, setIsMusicPlaying] = useState(true);
+
+  const toggleMusic = () => {
+    setIsMusicPlaying(!isMusicPlaying);
+  };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentReview((prev) => (prev + 1) % REVIEWS.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextReview = () => {
+    setCurrentReview((prev) => (prev + 1) % REVIEWS.length);
+  };
+
+  const prevReview = () => {
+    setCurrentReview((prev) => (prev - 1 + REVIEWS.length) % REVIEWS.length);
+  };
 
   const navigateTo = (path: string) => {
     router.push(path);
@@ -79,13 +191,13 @@ export default function Home() {
               </button>
             </div>
 
-            <div className="mt-10 flex justify-center md:justify-start">
+            <div className="mt-10 flex flex-col sm:flex-row items-center gap-8 justify-center md:justify-start relative z-50">
               <button 
                 onClick={() => scrollToSection('werkwijze-in-beeld')}
                 className="flex items-center gap-4 text-white group cursor-pointer hover:text-[#D4AF37] transition-all"
               >
                 <div className="relative">
-                  <div className="absolute inset-0 bg-[#D4AF37]/60 rounded-full animate-ping-small" />
+                  <div className="absolute inset-0 bg-[#D4AF37]/60 rounded-full animate-ping-small pointer-events-none" />
                   <div className="relative w-14 h-14 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] transition-all group-hover:scale-110 shadow-xl">
                     <Play fill="currentColor" size={20} className="ml-1 transition-colors group-hover:text-[#0F172A]" />
                   </div>
@@ -95,7 +207,30 @@ export default function Home() {
                   <span className="block text-xs font-bold tracking-widest uppercase">Bekijk ons in actie</span>
                 </div>
               </button>
+
+              <button 
+                onClick={toggleMusic}
+                className="flex items-center gap-4 text-white group cursor-pointer hover:text-[#D4AF37] transition-all"
+              >
+                <div className="relative">
+                  {isMusicPlaying && <div className="absolute inset-0 bg-[#D4AF37]/60 rounded-full animate-ping-small pointer-events-none" />}
+                  <div className="relative w-14 h-14 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] transition-all group-hover:scale-110 shadow-xl">
+                    {isMusicPlaying ? (
+                      <Volume2 size={20} className="transition-colors group-hover:text-[#0F172A]" />
+                    ) : (
+                      <VolumeX size={20} className="transition-colors group-hover:text-[#0F172A]" />
+                    )}
+                  </div>
+                </div>
+                <div className="text-left">
+                  <span className="block text-[9px] font-black uppercase tracking-[0.3em] text-[#D4AF37] mb-1">Achtergrond Muziek</span>
+                  <span className="block text-xs font-bold tracking-widest uppercase">{isMusicPlaying ? 'Pauzeren' : 'Afspelen'}</span>
+                </div>
+              </button>
             </div>
+            
+            {/* Hidden Music Player Container */}
+            {isMusicPlaying && <BackgroundMusic />}
           </div>
         </div>
       </section>
@@ -132,7 +267,7 @@ export default function Home() {
                 </div>
               </div>
             </ScrollReveal>
-            <ScrollReveal delay={200} className="order-1 lg:order-2 relative">
+            <ScrollReveal delay={200} className="order-1 lg:order-2 relative scale-90 origin-center">
               <div className="absolute -inset-4 border border-[#D4AF37]/20 rounded-[3rem] -z-10 translate-x-4 translate-y-4" />
               <div className="rounded-[3rem] overflow-hidden shadow-2xl aspect-[4/5]">
                 <img 
@@ -272,120 +407,210 @@ export default function Home() {
       </section>
 
       {/* Werkwijze */}
-      <section id="werkwijze-in-beeld" className="py-32 bg-white relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <ScrollReveal className="relative">
-              <div className="aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl relative group">
-                <img 
-                  src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=1200" 
-                  alt="Werkwijze" 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-[#0F172A]/40 flex items-center justify-center group-hover:bg-[#0F172A]/30 transition-all">
-                  <button className="w-24 h-24 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform border border-white/50">
-                    <Play size={32} fill="currentColor" className="ml-2" />
-                  </button>
-                </div>
-              </div>
-              
-              {/* Process Steps Overlay */}
-              <div className="hidden lg:block absolute -right-10 top-1/2 -translate-y-1/2 space-y-4">
-                {PROCESS.map((step, i) => (
-                  <div key={i} className="bg-white p-4 rounded-xl shadow-lg border border-slate-100 flex items-center gap-4 w-64 hover:scale-105 transition-transform origin-left">
-                    <span className="text-2xl font-black text-[#D4AF37] font-serif">{step.number}</span>
-                    <div>
-                      <p className="font-bold text-[#0F172A] text-sm">{step.title}</p>
-                    </div>
+      <section id="werkwijze-in-beeld" className="py-20 bg-[#0F172A] relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#D4AF37]/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#D4AF37]/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            {/* Image Side */}
+            <ScrollReveal className="relative lg:sticky lg:top-32 order-2 lg:order-1 scale-90 origin-center">
+              <div className="relative group max-w-md mx-auto lg:max-w-none">
+                {/* Decorative border frame */}
+                <div className="absolute -inset-3 border border-[#D4AF37]/30 rounded-[2.5rem] translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2" />
+                
+                <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl relative">
+                  <img 
+                    src="https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Home/service-man-instelling-house-heating-system-floor.webp" 
+                    alt="Werkwijze" 
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale-[20%] group-hover:grayscale-0"
+                  />
+                  <div className="absolute inset-0 bg-[#0F172A]/40 group-hover:bg-[#0F172A]/20 transition-all duration-500" />
+                  
+                  {/* Play Button */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <button className="w-20 h-20 bg-[#D4AF37]/90 backdrop-blur-md rounded-full flex items-center justify-center text-[#0F172A] hover:scale-110 transition-transform duration-500 shadow-[0_0_40px_-10px_rgba(212,175,55,0.6)] group-hover:shadow-[0_0_60px_-10px_rgba(212,175,55,0.8)]">
+                      <Play size={28} fill="currentColor" className="ml-1" />
+                    </button>
                   </div>
-                ))}
+                </div>
+
+                {/* Stat Badge */}
+                <div className="absolute -bottom-6 -right-6 bg-[#0F172A] border border-[#D4AF37]/30 p-6 rounded-[1.5rem] shadow-2xl max-w-[180px] hidden md:block">
+                  <p className="text-3xl font-serif font-bold text-[#D4AF37] mb-1">100%</p>
+                  <p className="text-slate-400 text-[10px] uppercase tracking-widest leading-relaxed">Tevredenheid Garantie</p>
+                </div>
               </div>
             </ScrollReveal>
 
-            <div>
+            {/* Content Side */}
+            <div className="order-1 lg:order-2">
               <ScrollReveal delay={200}>
-                <span className="text-[#D4AF37] font-black tracking-[0.4em] uppercase text-xs mb-4 block">ONZE WERKWIJZE</span>
-                <h2 className="text-5xl md:text-6xl font-medium text-[#0F172A] font-serif mb-8 leading-tight">Van Plan tot <span className="text-[#D4AF37]">Warmte</span></h2>
-                <p className="text-slate-600 text-lg mb-12 leading-relaxed">
-                  Wij geloven in duidelijkheid. Ons proces is ontworpen om u volledig te ontzorgen, van het eerste contact tot de warme voeten. Geen verrassingen, enkel vakmanschap.
+                <div className="flex items-center gap-4 mb-4">
+                   <div className="h-px w-12 bg-[#D4AF37]" />
+                   <span className="text-[#D4AF37] font-black tracking-[0.4em] uppercase text-xs">ONZE WERKWIJZE</span>
+                </div>
+                <h2 className="text-4xl md:text-5xl font-medium text-white font-serif mb-6 leading-tight">
+                  Van Plan tot <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#FCD34D]">Warmte</span>
+                </h2>
+                <p className="text-slate-400 text-base mb-10 leading-relaxed border-l-2 border-[#D4AF37]/20 pl-6">
+                  Een zorgeloos proces, ontworpen voor uw comfort. Wij nemen de leiding, zodat u enkel hoeft te genieten van het eindresultaat.
                 </p>
               </ScrollReveal>
 
-              <div className="space-y-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {PROCESS.map((step, index) => (
-                  <ScrollReveal key={step.number} delay={300 + (index * 100)} className="flex gap-6 group">
-                    <div className="relative">
-                      <div className="w-12 h-12 rounded-full border-2 border-[#D4AF37] flex items-center justify-center text-[#D4AF37] font-bold z-10 relative bg-white group-hover:bg-[#D4AF37] group-hover:text-white transition-colors">
-                        {step.number}
+                  <ScrollReveal key={step.number} delay={300 + (index * 100)} className="group relative">
+                    <div className="relative h-full bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-[1.5rem] hover:bg-[#D4AF37] transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_20px_40px_-10px_rgba(212,175,55,0.2)] flex flex-col justify-between">
+                      <div className="flex justify-between items-start mb-4">
+                        <div className="w-12 h-12 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/20 flex items-center justify-center text-[#D4AF37] font-serif font-bold text-lg group-hover:bg-white group-hover:text-[#D4AF37] transition-all duration-500">
+                          {step.number}
+                        </div>
+                        <ArrowRight className="w-5 h-5 text-[#D4AF37]/50 group-hover:text-[#0F172A] group-hover:-rotate-45 transition-all duration-500" />
                       </div>
-                      <div className="absolute top-12 left-1/2 -translate-x-1/2 w-px h-full bg-slate-200 -z-0 last:hidden" />
-                    </div>
-                    <div className="pb-8">
-                      <h4 className="text-xl font-bold text-[#0F172A] mb-2">{step.title}</h4>
-                      <p className="text-slate-500">{step.description}</p>
+                      
+                      <div>
+                        <h4 className="text-lg font-bold text-white mb-2 group-hover:text-[#0F172A] transition-colors">{step.title}</h4>
+                        <p className="text-sm text-slate-400 group-hover:text-[#0F172A]/80 transition-colors leading-relaxed">
+                          {step.description}
+                        </p>
+                      </div>
                     </div>
                   </ScrollReveal>
                 ))}
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Reviews */}
-      <section className="py-32 bg-[#0F172A] text-white relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <ScrollReveal className="text-center mb-20">
-            <span className="text-[#D4AF37] font-black tracking-[0.4em] uppercase text-xs mb-4 block">TESTIMONIALS</span>
-            <h2 className="text-5xl md:text-6xl font-medium text-white font-serif mb-6">Klanten over <span className="text-[#D4AF37]">KingDam</span></h2>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {REVIEWS.map((review, index) => (
-              <ScrollReveal key={review.id} delay={index * 100} className="bg-white/5 backdrop-blur-md p-10 rounded-[2.5rem] border border-white/10 hover:border-[#D4AF37]/50 transition-all hover:-translate-y-2">
-                <div className="flex gap-1 mb-6">
-                  {[...Array(review.rating)].map((_, i) => (
-                    <Star key={i} size={18} fill="#D4AF37" className="text-[#D4AF37]" />
-                  ))}
-                </div>
-                <p className="text-lg text-slate-300 italic mb-8 leading-relaxed">"{review.text}"</p>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-[#D4AF37] rounded-full flex items-center justify-center text-[#0F172A] font-bold text-lg">
-                    {review.name.charAt(0)}
-                  </div>
-                  <div>
-                    <p className="font-bold text-white">{review.name}</p>
-                    <p className="text-xs text-[#D4AF37] uppercase tracking-widest">{review.date}</p>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="py-32 bg-slate-50 relative overflow-hidden text-left">
-        <div className="max-w-3xl mx-auto px-4">
+      <section className="py-24 bg-white relative overflow-hidden text-left">
+        {/* Subtle Background Decor */}
+        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#D4AF37]/5 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+        
+        <div className="max-w-3xl mx-auto px-4 relative z-10">
           <ScrollReveal className="text-center">
-            <h2 className="text-5xl md:text-6xl font-medium text-[#0F172A] font-serif mb-20 italic leading-tight">Veelgestelde Vragen</h2>
+            <span className="text-[#D4AF37] font-black tracking-[0.4em] uppercase text-xs mb-4 block">FAQ</span>
+            <h2 className="text-4xl md:text-5xl font-medium text-[#0F172A] font-serif mb-12 leading-tight">Veelgestelde <span className="text-[#D4AF37]">Vragen</span></h2>
           </ScrollReveal>
-          <div className="space-y-6">
+          
+          <div className="space-y-4">
             {FAQS.map((faq, i) => (
-              <ScrollReveal key={i} delay={i * 100} className={`border-b border-slate-100 transition-all duration-500 ${activeFaq === i ? 'bg-white rounded-[2rem] px-8 py-4 shadow-sm' : 'py-8'}`}>
-                <button onClick={() => setActiveFaq(activeFaq === i ? null : i)} className="w-full flex justify-between items-center text-left">
-                  <span className="text-xl font-bold text-[#0F172A] pr-8">{faq.q}</span>
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all ${activeFaq === i ? 'bg-[#D4AF37] text-white rotate-180 shadow-lg shadow-[#D4AF37]/20' : 'bg-slate-200 text-[#0F172A]'}`}>{activeFaq === i ? <Minus size={20}/> : <Plus size={20}/>}</div>
+              <ScrollReveal key={i} delay={i * 100} className={`transition-all duration-500 rounded-[1.5rem] border ${activeFaq === i ? 'bg-white border-[#D4AF37]/30 shadow-xl shadow-[#D4AF37]/5' : 'bg-slate-50 border-slate-100 hover:border-[#D4AF37]/30'}`}>
+                <button onClick={() => setActiveFaq(activeFaq === i ? null : i)} className="w-full flex justify-between items-center text-left p-6">
+                  <span className={`text-lg font-bold pr-8 transition-colors ${activeFaq === i ? 'text-[#D4AF37]' : 'text-[#0F172A]'}`}>{faq.q}</span>
+                  <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 shrink-0 ${activeFaq === i ? 'bg-[#D4AF37] text-white rotate-180' : 'bg-white text-[#0F172A] border border-slate-200'}`}>
+                    {activeFaq === i ? <Minus size={18}/> : <Plus size={18}/>}
+                  </div>
                 </button>
-                <div className={`overflow-hidden transition-all duration-500 ${activeFaq === i ? 'max-h-96 opacity-100 mt-8' : 'max-h-0 opacity-0'}`}><p className="text-slate-600 text-lg italic leading-relaxed pb-8">{faq.a}</p></div>
+                <div className={`overflow-hidden transition-all duration-500 ${activeFaq === i ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}`}>
+                    <p className="text-slate-600 text-base leading-relaxed px-6 pb-6 border-t border-slate-100/50 pt-4">
+                        {faq.a}
+                    </p>
+                </div>
               </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Reviews */}
+      <section className="py-20 bg-[#0F172A] text-white relative overflow-hidden">
+        <div className="max-w-4xl mx-auto px-4 relative z-10">
+          <ScrollReveal className="text-center mb-12">
+            <span className="text-[#D4AF37] font-black tracking-[0.4em] uppercase text-xs mb-4 block">TESTIMONIALS</span>
+            <h2 className="text-4xl md:text-5xl font-medium text-white font-serif mb-6">Klanten over <span className="text-[#D4AF37]">KingDam</span></h2>
+          </ScrollReveal>
+
+          <div className="relative">
+            {/* Carousel Container */}
+            <div className="overflow-hidden">
+              <div 
+                className="flex transition-transform duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)]" 
+                style={{ transform: `translateX(-${currentReview * 100}%)` }}
+              >
+                {REVIEWS.map((review) => (
+                  <div key={review.id} className="w-full flex-shrink-0 px-4">
+                    <div className="bg-white/5 backdrop-blur-md p-8 md:p-12 rounded-[2.5rem] border border-white/10 relative group hover:border-[#D4AF37]/30 transition-colors mx-auto max-w-2xl">
+                      <Quote className="absolute top-8 left-8 text-[#D4AF37]/20 w-12 h-12" />
+                      
+                      <div className="flex flex-col items-center text-center relative z-10">
+                        <div className="flex gap-1 mb-6">
+                          {[...Array(review.rating)].map((_, i) => (
+                            <Star key={i} size={20} fill="#D4AF37" className="text-[#D4AF37]" />
+                          ))}
+                        </div>
+                        
+                        <p className="text-xl md:text-2xl text-slate-200 font-serif italic mb-8 leading-relaxed">"{review.text}"</p>
+                        
+                        <div className="flex items-center gap-4">
+                          <div className="w-14 h-14 bg-gradient-to-br from-[#D4AF37] to-[#B8860B] rounded-full flex items-center justify-center text-[#0F172A] font-bold text-xl shadow-lg shadow-[#D4AF37]/20">
+                            {review.name.charAt(0)}
+                          </div>
+                          <div className="text-left">
+                            <p className="font-bold text-white text-lg">{review.name}</p>
+                            <p className="text-xs text-[#D4AF37] uppercase tracking-widest">{review.date}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Navigation Buttons */}
+            <button 
+              onClick={prevReview}
+              className="absolute top-1/2 -left-4 md:-left-12 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-[#D4AF37] hover:border-[#D4AF37] transition-all duration-300 group z-20"
+              aria-label="Previous review"
+            >
+              <ChevronLeft className="w-6 h-6 group-hover:-translate-x-0.5 transition-transform" />
+            </button>
+            <button 
+              onClick={nextReview}
+              className="absolute top-1/2 -right-4 md:-right-12 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-[#D4AF37] hover:border-[#D4AF37] transition-all duration-300 group z-20"
+              aria-label="Next review"
+            >
+              <ChevronRight className="w-6 h-6 group-hover:translate-x-0.5 transition-transform" />
+            </button>
+
+            {/* Dots Indicator */}
+            <div className="flex justify-center gap-3 mt-8">
+              {REVIEWS.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentReview(index)}
+                  className={`h-2 rounded-full transition-all duration-500 ${
+                    currentReview === index ? 'w-8 bg-[#D4AF37]' : 'w-2 bg-white/20 hover:bg-white/40'
+                  }`}
+                  aria-label={`Go to review ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="py-32 bg-white relative overflow-hidden">
+      <section className="py-32 relative overflow-hidden">
+        {/* Parallax Background */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: `url('https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Home/service-man-instelling-house-heating-system-floor-_1_.webp')`,
+            backgroundAttachment: 'fixed',
+            backgroundPosition: 'center',
+            backgroundSize: 'cover'
+          }}
+        />
+        {/* Overlay for readability */}
+        <div className="absolute inset-0 bg-white/60 z-0 backdrop-blur-[1px]" />
+
         <ScrollReveal className="max-w-5xl mx-auto px-4 text-center relative z-10">
           <h2 className="text-5xl md:text-7xl font-medium text-[#0F172A] font-serif mb-8">Klaar voor de <span className="text-[#D4AF37]">Toekomst?</span></h2>
           <p className="text-xl text-slate-600 mb-12 max-w-2xl mx-auto">
