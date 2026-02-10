@@ -481,6 +481,16 @@ export default function Home() {
                   </ScrollReveal>
                 ))}
               </div>
+
+              <div className="mt-10 flex justify-center md:justify-start">
+                 <button 
+                  onClick={() => navigateTo('/gallery')}
+                  className="group bg-[#D4AF37] text-white px-8 py-4 rounded-xl font-black text-sm tracking-widest hover:bg-white hover:text-[#0F172A] transition-all shadow-xl shadow-[#D4AF37]/20 flex items-center gap-3"
+                >
+                  BEKIJK ONZE PROJECTEN
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
             </div>
 
           </div>

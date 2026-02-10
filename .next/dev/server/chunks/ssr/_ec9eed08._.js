@@ -14,7 +14,9 @@ __turbopack_context__.s([
     "REVIEWS",
     ()=>REVIEWS,
     "SERVICES",
-    ()=>SERVICES
+    ()=>SERVICES,
+    "VIDEOS",
+    ()=>VIDEOS
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shield$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Shield$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/shield.js [app-ssr] (ecmascript) <export default as Shield>");
@@ -182,6 +184,43 @@ const GALLERY = [
         url: 'https://images.unsplash.com/photo-1585412727339-54e4bae3bbf9?auto=format&fit=crop&q=80&w=1200',
         category: 'Passie',
         description: 'Passie voor Warmte'
+    }
+];
+const VIDEOS = [
+    {
+        id: 'v1',
+        url: 'ElDaTAueHHo',
+        category: 'Impressie',
+        description: 'KingDam in Actie',
+        thumbnail: 'https://img.youtube.com/vi/ElDaTAueHHo/maxresdefault.jpg'
+    },
+    {
+        id: 'v2',
+        url: 'ElDaTAueHHo',
+        category: 'Montage',
+        description: 'Vloerverwarming Frezen',
+        thumbnail: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1200'
+    },
+    {
+        id: 'v3',
+        url: 'ElDaTAueHHo',
+        category: 'Afwerking',
+        description: 'Eindresultaat',
+        thumbnail: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1200'
+    },
+    {
+        id: 'v4',
+        url: 'ElDaTAueHHo',
+        category: 'Projecten',
+        description: 'Grote Projecten',
+        thumbnail: 'https://images.unsplash.com/photo-1590674899505-1c5c41951f89?auto=format&fit=crop&q=80&w=1200'
+    },
+    {
+        id: 'v5',
+        url: 'ElDaTAueHHo',
+        category: 'Team',
+        description: 'Ons Team',
+        thumbnail: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1200'
     }
 ];
 const FAQS = [

@@ -58,15 +58,23 @@ export const PROCESS: ProcessStep[] = [
 ];
 
 export const GALLERY: (GalleryItem & { description: string })[] = [
-  { id: 'g1', url: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1200', category: 'Kwaliteit', description: 'Gegarandeerde Kwaliteit' },
-  { id: 'g2', url: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1200', category: 'Vakmanschap', description: 'Vakmanschap in Detail' },
-  { id: 'g3', url: 'https://images.unsplash.com/photo-1621905252507-b354bcadcabc?auto=format&fit=crop&q=80&w=1200', category: 'Exclusiviteit', description: 'Koning in Comfort' },
-  { id: 'g4', url: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&q=80&w=1200', category: 'Duurzaamheid', description: 'Duurzaam Resultaat' },
-  { id: 'g5', url: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&q=80&w=1200', category: 'Innovatie', description: 'Innovatieve Technieken' },
-  { id: 'g6', url: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=1200', category: 'Precisie', description: 'Stabiliteit & Vertrouwen' },
-  { id: 'g7', url: 'https://images.unsplash.com/photo-1518131359043-4e175050e181?auto=format&fit=crop&q=80&w=1200', category: 'Professionaliteit', description: 'Professionele Afwerking' },
-  { id: 'g8', url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1200', category: 'Comfort', description: 'Uw Comfort, Onze Zorg' },
-  { id: 'g9', url: 'https://images.unsplash.com/photo-1585412727339-54e4bae3bbf9?auto=format&fit=crop&q=80&w=1200', category: 'Passie', description: 'Passie voor Warmte' },
+  { id: 'g1', url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Home/result-back-view-three-men-protective-helmets-holding-hands-his-waist-standing-construction-site-loo.webp', category: 'Kwaliteit', description: 'Gegarandeerde Kwaliteit' },
+  { id: 'g2', url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Home/service-man-instelling-house-heating-system-floor.webp', category: 'Vakmanschap', description: 'Vakmanschap in Detail' },
+  { id: 'g3', url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Home/service-man-instelling-house-heating-system-floor-_1_.webp', category: 'Exclusiviteit', description: 'Koning in Comfort' },
+  { id: 'g4', url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Home/result-back-view-three-men-protective-helmets-holding-hands-his-waist-standing-construction-site-loo.webp', category: 'Duurzaamheid', description: 'Duurzaam Resultaat' },
+  { id: 'g5', url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Home/service-man-instelling-house-heating-system-floor.webp', category: 'Innovatie', description: 'Innovatieve Technieken' },
+  { id: 'g6', url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Home/service-man-instelling-house-heating-system-floor-_1_.webp', category: 'Precisie', description: 'Stabiliteit & Vertrouwen' },
+  { id: 'g7', url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Home/result-back-view-three-men-protective-helmets-holding-hands-his-waist-standing-construction-site-loo.webp', category: 'Professionaliteit', description: 'Professionele Afwerking' },
+  { id: 'g8', url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Home/service-man-instelling-house-heating-system-floor.webp', category: 'Comfort', description: 'Uw Comfort, Onze Zorg' },
+  { id: 'g9', url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Home/service-man-instelling-house-heating-system-floor-_1_.webp', category: 'Passie', description: 'Passie voor Warmte' },
+];
+
+export const VIDEOS = [
+  { id: 'v1', url: 'ElDaTAueHHo', category: 'Impressie', description: 'KingDam in Actie', thumbnail: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Home/result-back-view-three-men-protective-helmets-holding-hands-his-waist-standing-construction-site-loo.webp' },
+  { id: 'v2', url: 'ElDaTAueHHo', category: 'Montage', description: 'Vloerverwarming Frezen', thumbnail: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Home/service-man-instelling-house-heating-system-floor.webp' },
+  { id: 'v3', url: 'ElDaTAueHHo', category: 'Afwerking', description: 'Eindresultaat', thumbnail: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Home/service-man-instelling-house-heating-system-floor-_1_.webp' },
+  { id: 'v4', url: 'ElDaTAueHHo', category: 'Projecten', description: 'Grote Projecten', thumbnail: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Home/result-back-view-three-men-protective-helmets-holding-hands-his-waist-standing-construction-site-loo.webp' },
+  { id: 'v5', url: 'ElDaTAueHHo', category: 'Team', description: 'Ons Team', thumbnail: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Home/service-man-instelling-house-heating-system-floor.webp' },
 ];
 
 export const FAQS = [
