@@ -479,10 +479,6 @@
     top: calc(var(--spacing) * 10);
   }
 
-  .top-full {
-    top: 100%;
-  }
-
   .right-0 {
     right: calc(var(--spacing) * 0);
   }
@@ -1918,10 +1914,6 @@
 
   .text-slate-700 {
     color: var(--color-slate-700);
-  }
-
-  .text-slate-800 {
-    color: var(--color-slate-800);
   }
 
   .text-transparent {
