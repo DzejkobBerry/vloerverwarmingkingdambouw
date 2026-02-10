@@ -45,6 +45,7 @@ const BackgroundMusic = () => {
           height: '1',
           width: '1',
           videoId: 'ElDaTAueHHo',
+          host: 'https://www.youtube-nocookie.com',
           playerVars: {
             'autoplay': 1,
             'controls': 0,
@@ -58,6 +59,25 @@ const BackgroundMusic = () => {
             'onReady': (event: any) => {
               event.target.setVolume(15);
               event.target.playVideo();
+
+              // Mobile fallback: Try to play on first interaction
+              const handleInteraction = () => {
+                if (playerInstance && typeof playerInstance.getPlayerState === 'function') {
+                  const state = playerInstance.getPlayerState();
+                  // If unstarted or cued, try to play
+                  if (state === -1 || state === 5 || state === 2) { 
+                    event.target.playVideo();
+                  }
+                }
+              };
+
+              // Add listeners for common interactions
+              ['click', 'touchstart', 'scroll', 'keydown'].forEach(evt => 
+                document.addEventListener(evt, handleInteraction, { once: true })
+              );
+            },
+            'onStateChange': (event: any) => {
+               // Optional: could handle state changes here
             }
           }
         });
