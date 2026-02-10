@@ -29,15 +29,15 @@ export default function Contact() {
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D4AF37]/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 z-0 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#D4AF37]/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/4 z-0 pointer-events-none" />
 
-      <div className="relative z-10 pt-32 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 pt-24 pb-16 md:pt-32 md:pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-12 md:mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/20 backdrop-blur-sm mb-6 animate-fade-in-up">
             <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse"></span>
             <span className="text-[#D4AF37] text-xs font-bold tracking-[0.2em] uppercase">Neem Contact Op</span>
           </div>
-          <h1 className="text-5xl md:text-7xl font-medium text-white font-serif mb-6 leading-tight animate-fade-in-up delay-100">
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-medium text-white font-serif mb-6 leading-tight animate-fade-in-up delay-100">
             Start uw <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#F3E5AB]">Comfort Project</span>
           </h1>
           <p className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light animate-fade-in-up delay-200">
@@ -48,40 +48,40 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
           {/* Contact Information Column */}
-          <div className="lg:col-span-5 space-y-8 animate-fade-in-left delay-300">
+          <div className="lg:col-span-5 space-y-6 md:space-y-8 animate-fade-in-left delay-300">
             {/* Info Cards */}
             <div className="grid gap-6">
-              <div className="group bg-white/5 backdrop-blur-md p-8 rounded-[2rem] border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-500 hover:bg-white/10">
+              <div className="group bg-white/5 backdrop-blur-md p-6 md:p-8 rounded-[2rem] border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-500 hover:bg-white/10">
                 <div className="flex items-start gap-6">
-                  <div className="w-14 h-14 rounded-2xl bg-[#D4AF37]/20 flex items-center justify-center text-[#D4AF37] group-hover:scale-110 transition-transform duration-500 border border-[#D4AF37]/20">
+                  <div className="w-14 h-14 rounded-2xl bg-[#D4AF37]/20 flex items-center justify-center text-[#D4AF37] group-hover:scale-110 transition-transform duration-500 border border-[#D4AF37]/20 shrink-0">
                     <Phone size={24} />
                   </div>
                   <div>
                     <h3 className="text-white font-serif text-xl mb-1">Telefonisch</h3>
                     <p className="text-slate-400 text-sm mb-3">Direct contact met een expert</p>
-                    <a href="tel:+31612345678" className="text-xl font-bold text-white hover:text-[#D4AF37] transition-colors flex items-center gap-2 group-hover:translate-x-2 duration-300">
+                    <a href="tel:+31612345678" className="text-lg md:text-xl font-bold text-white hover:text-[#D4AF37] transition-colors flex items-center gap-2 group-hover:translate-x-2 duration-300">
                       +31 6 1234 5678 <ArrowRight size={16} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                     </a>
                   </div>
                 </div>
               </div>
 
-              <div className="group bg-white/5 backdrop-blur-md p-8 rounded-[2rem] border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-500 hover:bg-white/10">
+              <div className="group bg-white/5 backdrop-blur-md p-6 md:p-8 rounded-[2rem] border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-500 hover:bg-white/10">
                 <div className="flex items-start gap-6">
-                  <div className="w-14 h-14 rounded-2xl bg-[#D4AF37]/20 flex items-center justify-center text-[#D4AF37] group-hover:scale-110 transition-transform duration-500 border border-[#D4AF37]/20">
+                  <div className="w-14 h-14 rounded-2xl bg-[#D4AF37]/20 flex items-center justify-center text-[#D4AF37] group-hover:scale-110 transition-transform duration-500 border border-[#D4AF37]/20 shrink-0">
                     <Mail size={24} />
                   </div>
                   <div>
                     <h3 className="text-white font-serif text-xl mb-1">E-mail</h3>
                     <p className="text-slate-400 text-sm mb-3">Reactie binnen 24 uur</p>
-                    <a href="mailto:info@kingdambouw.nl" className="text-xl font-bold text-white hover:text-[#D4AF37] transition-colors flex items-center gap-2 group-hover:translate-x-2 duration-300">
+                    <a href="mailto:info@kingdambouw.nl" className="text-lg md:text-xl font-bold text-white hover:text-[#D4AF37] transition-colors flex items-center gap-2 group-hover:translate-x-2 duration-300">
                       info@kingdambouw.nl <ArrowRight size={16} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                     </a>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-[#D4AF37] p-8 rounded-[2rem] shadow-2xl shadow-[#D4AF37]/20 relative overflow-hidden group">
+              <div className="bg-[#D4AF37] p-6 md:p-8 rounded-[2rem] shadow-2xl shadow-[#D4AF37]/20 relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-700"></div>
                 <div className="relative z-10">
                   <div className="flex items-center gap-4 mb-6">
@@ -116,12 +116,12 @@ export default function Contact() {
 
           {/* Form Column */}
           <div className="lg:col-span-7 animate-fade-in-right delay-300">
-            <div className="bg-white rounded-[3rem] p-8 md:p-12 shadow-2xl relative overflow-hidden">
+            <div className="bg-white rounded-[2rem] md:rounded-[3rem] p-6 md:p-12 shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
               
               <div className="relative z-10">
-                <h3 className="text-3xl font-serif font-medium text-[#0F172A] mb-2">Stuur een bericht</h3>
-                <p className="text-slate-500 mb-10">Vul het formulier in en wij nemen zo spoedig mogelijk contact met u op.</p>
+                <h3 className="text-2xl md:text-3xl font-serif font-medium text-[#0F172A] mb-2">Stuur een bericht</h3>
+                <p className="text-slate-500 mb-8 md:mb-10 text-sm md:text-base">Vul het formulier in en wij nemen zo spoedig mogelijk contact met u op.</p>
 
                 <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -133,7 +133,7 @@ export default function Contact() {
                         </div>
                         <input 
                           type="text" 
-                          className="w-full bg-slate-50 border border-slate-200 text-[#0F172A] rounded-2xl py-4 pl-12 pr-4 focus:ring-2 focus:ring-[#D4AF37]/20 focus:border-[#D4AF37] outline-none transition-all placeholder:text-slate-300" 
+                          className="w-full bg-slate-50 border border-slate-200 text-[#0F172A] rounded-2xl py-3 md:py-4 pl-12 pr-4 focus:ring-2 focus:ring-[#D4AF37]/20 focus:border-[#D4AF37] outline-none transition-all placeholder:text-slate-300" 
                           placeholder="Uw naam"
                         />
                       </div>
@@ -147,7 +147,7 @@ export default function Contact() {
                         </div>
                         <input 
                           type="tel" 
-                          className="w-full bg-slate-50 border border-slate-200 text-[#0F172A] rounded-2xl py-4 pl-12 pr-4 focus:ring-2 focus:ring-[#D4AF37]/20 focus:border-[#D4AF37] outline-none transition-all placeholder:text-slate-300" 
+                          className="w-full bg-slate-50 border border-slate-200 text-[#0F172A] rounded-2xl py-3 md:py-4 pl-12 pr-4 focus:ring-2 focus:ring-[#D4AF37]/20 focus:border-[#D4AF37] outline-none transition-all placeholder:text-slate-300" 
                           placeholder="06 1234 5678"
                         />
                       </div>
@@ -162,7 +162,7 @@ export default function Contact() {
                       </div>
                       <input 
                         type="email" 
-                        className="w-full bg-slate-50 border border-slate-200 text-[#0F172A] rounded-2xl py-4 pl-12 pr-4 focus:ring-2 focus:ring-[#D4AF37]/20 focus:border-[#D4AF37] outline-none transition-all placeholder:text-slate-300" 
+                        className="w-full bg-slate-50 border border-slate-200 text-[#0F172A] rounded-2xl py-3 md:py-4 pl-12 pr-4 focus:ring-2 focus:ring-[#D4AF37]/20 focus:border-[#D4AF37] outline-none transition-all placeholder:text-slate-300" 
                         placeholder="naam@voorbeeld.nl"
                       />
                     </div>
@@ -176,13 +176,13 @@ export default function Contact() {
                       </div>
                       <textarea 
                         rows={4} 
-                        className="w-full bg-slate-50 border border-slate-200 text-[#0F172A] rounded-2xl py-4 pl-12 pr-4 focus:ring-2 focus:ring-[#D4AF37]/20 focus:border-[#D4AF37] outline-none transition-all placeholder:text-slate-300 resize-none" 
+                        className="w-full bg-slate-50 border border-slate-200 text-[#0F172A] rounded-2xl py-3 md:py-4 pl-12 pr-4 focus:ring-2 focus:ring-[#D4AF37]/20 focus:border-[#D4AF37] outline-none transition-all placeholder:text-slate-300 resize-none" 
                         placeholder="Vertel ons over uw project..."
                       ></textarea>
                     </div>
                   </div>
 
-                  <button className="w-full bg-[#0F172A] text-white py-5 rounded-2xl font-bold tracking-wider hover:bg-[#D4AF37] transition-all duration-300 shadow-xl shadow-[#0F172A]/10 flex items-center justify-center gap-3 group active:scale-[0.98]">
+                  <button className="w-full bg-[#0F172A] text-white py-4 md:py-5 rounded-2xl font-bold tracking-wider hover:bg-[#D4AF37] transition-all duration-300 shadow-xl shadow-[#0F172A]/10 flex items-center justify-center gap-3 group active:scale-[0.98]">
                     VERSTUUR BERICHT
                     <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </button>

@@ -10,20 +10,9 @@ export default function Gallery() {
 
   // Function to determine grid span based on index
   const getGridClass = (index: number) => {
+    // Mobile: always 1 col (handled by grid-cols-1)
+    // Desktop (md+):
     // Pattern: Big, Small, Small, Big, Small, Small...
-    // 0: col-span-2 row-span-2 (Big)
-    // 1: col-span-1 row-span-1 (Small)
-    // 2: col-span-1 row-span-1 (Small)
-    // 3: col-span-2 row-span-2 (Big)
-    // ...
-    // Or a more random-looking pattern:
-    // 0: Big (2x2)
-    // 1: Tall (1x2)
-    // 2: Small (1x1)
-    // 3: Wide (2x1)
-    // 4: Small (1x1)
-    
-    // Simple Masonry-like pattern
     const pattern = index % 6;
     if (pattern === 0) return 'md:col-span-2 md:row-span-2';
     if (pattern === 3) return 'md:col-span-2 md:row-span-1';
@@ -33,11 +22,11 @@ export default function Gallery() {
 
   return (
     <>
-      <div className="pt-32 pb-32 min-h-screen bg-slate-50">
+      <div className="pt-24 pb-20 md:pt-32 md:pb-32 min-h-screen bg-slate-50">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="relative text-center mb-24">
+          <div className="relative text-center mb-12 md:mb-24">
             {/* Decorative Background Blob */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#D4AF37]/5 rounded-full blur-3xl -z-10" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[200px] md:w-[600px] md:h-[400px] bg-[#D4AF37]/5 rounded-full blur-3xl -z-10" />
 
             {/* Badge */}
             <div className="inline-block mb-6 animate-fade-in-up">
@@ -47,7 +36,7 @@ export default function Gallery() {
             </div>
 
             {/* Title */}
-            <h1 className="text-6xl md:text-7xl font-medium text-[#0F172A] font-serif mb-8 tracking-tight">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium text-[#0F172A] font-serif mb-8 tracking-tight">
               Onze <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-br from-[#D4AF37] to-[#8a701f]">
                 Portfolio
                 <svg className="absolute -bottom-2 w-full h-3 text-[#D4AF37] opacity-40" viewBox="0 0 100 10" preserveAspectRatio="none">
@@ -57,7 +46,7 @@ export default function Gallery() {
             </h1>
 
             {/* Subtitle */}
-            <p className="text-slate-500 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-12 font-light">
+            <p className="text-slate-500 text-base md:text-xl max-w-2xl mx-auto leading-relaxed mb-12 font-light">
               Een visuele reis door onze projecten, waar techniek en esthetiek samenkomen.
               <br/>
               <span className="text-[#D4AF37] font-serif italic mt-2 block">"Kwaliteit en stabiliteit in elke meter."</span>
@@ -67,31 +56,31 @@ export default function Gallery() {
             <div className="inline-flex bg-white/80 backdrop-blur-md p-2 rounded-full shadow-2xl shadow-[#D4AF37]/10 border border-[#D4AF37]/20 relative z-10 transition-transform hover:scale-105 duration-300">
               <button 
                 onClick={() => setActiveTab('photos')}
-                className={`px-8 py-4 rounded-full text-xs md:text-sm font-black tracking-widest uppercase transition-all duration-300 flex items-center gap-3 ${
+                className={`px-6 py-3 md:px-8 md:py-4 rounded-full text-xs md:text-sm font-black tracking-widest uppercase transition-all duration-300 flex items-center gap-2 md:gap-3 ${
                   activeTab === 'photos' 
                     ? 'bg-gradient-to-r from-[#D4AF37] to-[#b59230] text-white shadow-lg shadow-[#D4AF37]/30 scale-105' 
                     : 'text-slate-400 hover:text-[#0F172A] hover:bg-[#D4AF37]/5'
                 }`}
               >
-                <ImageIcon size={18} className={activeTab === 'photos' ? 'animate-pulse' : ''} />
+                <ImageIcon size={16} className={`md:w-[18px] md:h-[18px] ${activeTab === 'photos' ? 'animate-pulse' : ''}`} />
                 Foto's
               </button>
               <button 
                 onClick={() => setActiveTab('videos')}
-                className={`px-8 py-4 rounded-full text-xs md:text-sm font-black tracking-widest uppercase transition-all duration-300 flex items-center gap-3 ${
+                className={`px-6 py-3 md:px-8 md:py-4 rounded-full text-xs md:text-sm font-black tracking-widest uppercase transition-all duration-300 flex items-center gap-2 md:gap-3 ${
                   activeTab === 'videos' 
                     ? 'bg-gradient-to-r from-[#D4AF37] to-[#b59230] text-white shadow-lg shadow-[#D4AF37]/30 scale-105' 
                     : 'text-slate-400 hover:text-[#0F172A] hover:bg-[#D4AF37]/5'
                 }`}
               >
-                <Film size={18} className={activeTab === 'videos' ? 'animate-pulse' : ''} />
+                <Film size={16} className={`md:w-[18px] md:h-[18px] ${activeTab === 'videos' ? 'animate-pulse' : ''}`} />
                 Video's
               </button>
             </div>
           </div>
 
           {/* Gallery Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px] grid-flow-dense">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[250px] md:auto-rows-[300px] grid-flow-dense">
             {activeTab === 'photos' ? (
               GALLERY.map((item, index) => (
                 <div 

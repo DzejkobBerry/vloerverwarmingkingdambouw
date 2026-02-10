@@ -169,7 +169,7 @@ export default function Home() {
               <ShieldCheck className="w-5 h-5 text-[#D4AF37]" />
               <span className="text-[10px] font-black uppercase tracking-[0.2em]">Hoogste Klantwaardering in de Regio</span>
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium text-white mb-8 leading-[1.2] font-serif">
+            <h1 className="text-3xl md:text-6xl lg:text-7xl font-medium text-white mb-8 leading-[1.2] font-serif">
               Specialisten in warme voeten <br />
               <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-white via-[#D4AF37] to-[#B8860B]">en een gerust hart.</span>
             </h1>
@@ -203,7 +203,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="text-left">
-                  <span className="block text-[9px] font-black uppercase tracking-[0.3em] text-[#D4AF37] mb-1">Onze Video</span>
+                  <span className="block text-[10px] font-black uppercase tracking-[0.3em] text-[#D4AF37] mb-1">Onze Video</span>
                   <span className="block text-xs font-bold tracking-widest uppercase">Bekijk ons in actie</span>
                 </div>
               </button>
@@ -223,7 +223,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="text-left">
-                  <span className="block text-[9px] font-black uppercase tracking-[0.3em] text-[#D4AF37] mb-1">Achtergrond Muziek</span>
+                  <span className="block text-[10px] font-black uppercase tracking-[0.3em] text-[#D4AF37] mb-1">Achtergrond Muziek</span>
                   <span className="block text-xs font-bold tracking-widest uppercase">{isMusicPlaying ? 'Pauzeren' : 'Afspelen'}</span>
                 </div>
               </button>
@@ -233,15 +233,26 @@ export default function Home() {
             {isMusicPlaying && <BackgroundMusic />}
           </div>
         </div>
+
+        {/* Scroll Indicator */}
+        <div 
+          onClick={() => scrollToSection('over-ons')}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 cursor-pointer group z-20 animate-fade-in delay-700"
+        >
+          <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/50 group-hover:text-[#D4AF37] transition-colors duration-300">Scroll</span>
+          <div className="w-[26px] h-[42px] rounded-full border border-white/20 group-hover:border-[#D4AF37]/50 flex justify-center p-2 transition-colors duration-300 backdrop-blur-sm bg-white/5">
+            <div className="w-1 h-1.5 bg-[#D4AF37] rounded-full animate-scroll-down" />
+          </div>
+        </div>
       </section>
 
       {/* Over Ons */}
-      <section id="over-ons" className="py-32 bg-white relative overflow-hidden">
+      <section id="over-ons" className="py-16 md:py-32 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
             <ScrollReveal className="order-2 lg:order-1">
               <span className="text-[#D4AF37] font-black tracking-[0.4em] uppercase text-xs mb-4 block">WIE ZIJN WIJ</span>
-              <h2 className="text-5xl md:text-6xl font-medium text-[#0F172A] font-serif italic leading-tight mb-8">Passie voor <span className="text-[#D4AF37]">Perfectie</span></h2>
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-medium text-[#0F172A] font-serif italic leading-tight mb-8">Passie voor <span className="text-[#D4AF37]">Perfectie</span></h2>
               <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
                 <p>
                   Met meer dan <strong>7 jaar ervaring</strong> is KingDam Bouw uitgegroeid tot een toonaangevende naam in de wereld van vloerverwarming. Onze reis begon met een simpele missie: elke woning voorzien van de meest efficiënte en duurzame warmte.
@@ -276,7 +287,7 @@ export default function Home() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-12 -left-12 bg-[#0F172A]/95 backdrop-blur-xl text-white p-8 rounded-[2rem] shadow-2xl hidden md:flex items-center gap-6 border border-[#D4AF37]/30 hover:scale-105 transition-transform duration-500 hover:shadow-[#D4AF37]/20 hover:border-[#D4AF37]/60 group">
+              <div className="relative mt-6 md:absolute md:-bottom-12 md:-left-12 bg-[#0F172A]/95 backdrop-blur-xl text-white p-6 md:p-8 rounded-[2rem] shadow-2xl flex items-center gap-6 border border-[#D4AF37]/30 hover:scale-105 transition-transform duration-500 hover:shadow-[#D4AF37]/20 hover:border-[#D4AF37]/60 group mx-auto md:mx-0 w-fit">
                 <div className="w-16 h-16 rounded-2xl bg-[#D4AF37]/10 flex items-center justify-center border border-[#D4AF37]/20 group-hover:bg-[#D4AF37] transition-colors duration-500">
                    <Award size={32} className="text-[#D4AF37] group-hover:text-[#0F172A] transition-colors duration-500" />
                 </div>
@@ -291,9 +302,9 @@ export default function Home() {
       </section>
 
       {/* Stats */}
-      <section className="py-16 bg-[#0F172A] text-white relative overflow-hidden">
+      <section className="py-12 md:py-16 bg-[#0F172A] text-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {[
               { num: '7+', label: 'Jaar Ervaring', icon: <Calendar className="w-6 h-6" /> },
               { num: '500+', label: 'Projecten Voltooid', icon: <Users className="w-6 h-6" /> },
@@ -305,7 +316,7 @@ export default function Home() {
                   <div className="w-12 h-12 rounded-full bg-[#D4AF37]/10 flex items-center justify-center text-[#D4AF37] mb-4 border border-[#D4AF37]/20">
                     {stat.icon}
                   </div>
-                  <p className="text-4xl font-black mb-1 font-serif text-white">{stat.num}</p>
+                  <p className="text-3xl md:text-4xl font-black mb-1 font-serif text-white">{stat.num}</p>
                   <p className="text-[9px] uppercase tracking-[0.3em] text-slate-400 font-black text-center">{stat.label}</p>
                 </div>
               </ScrollReveal>
@@ -315,20 +326,20 @@ export default function Home() {
       </section>
 
       {/* Vakmanschap in elke meter summary section */}
-      <section id="diensten-summary" className="py-32 bg-slate-50 relative overflow-hidden">
+      <section id="diensten-summary" className="py-16 md:py-32 bg-slate-50 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4">
-          <ScrollReveal className="flex flex-col lg:flex-row items-end justify-between mb-24 gap-8">
+          <ScrollReveal className="flex flex-col lg:flex-row items-end justify-between mb-16 md:mb-24 gap-8">
             <div className="lg:w-2/3">
               <span className="text-[#D4AF37] font-black tracking-[0.4em] uppercase text-xs mb-4 block">ONZE EXPERTISES</span>
-              <h2 className="text-5xl md:text-6xl font-medium text-[#0F172A] font-serif italic leading-tight">Vakmanschap in elke meter</h2>
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-medium text-[#0F172A] font-serif italic leading-tight">Vakmanschap in elke meter</h2>
             </div>
             <p className="lg:w-1/3 text-slate-500 text-lg italic">
               Of het nu gaat om nieuwbouw of renovatie, wij bieden de meest efficiënte technische oplossingen voor elk type vloer.
             </p>
           </ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12 text-left">
             {SERVICES.slice(0, 3).map((service, i) => (
-              <ScrollReveal key={service.id} delay={i * 100} className="p-12 bg-white rounded-[3rem] border border-slate-200 shadow-xl group hover:bg-[#0F172A] transition-all duration-500 hover:shadow-2xl hover:border-[#0F172A]">
+              <ScrollReveal key={service.id} delay={i * 100} className="p-8 md:p-12 bg-white rounded-[3rem] border border-slate-200 shadow-xl group hover:bg-[#0F172A] transition-all duration-500 hover:shadow-2xl hover:border-[#0F172A]">
                 <div className="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:bg-[#D4AF37] transition-all duration-500">
                   <div className="group-hover:[&_svg]:text-white transition-all duration-500">
                     {service.icon}
@@ -343,28 +354,28 @@ export default function Home() {
       </section>
 
       {/* Redesigned "Onze Oplossingen" Section */}
-      <section id="diensten" className="py-32 bg-white relative overflow-hidden">
+      <section id="diensten" className="py-16 md:py-32 bg-white relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-[0.03]">
           <div className="absolute top-0 left-0 w-96 h-96 bg-[#D4AF37] rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2" />
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#0F172A] rounded-full blur-[100px] translate-x-1/2 translate-y-1/2" />
         </div>
         
         <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <ScrollReveal className="flex flex-col items-center text-center mb-24">
+          <ScrollReveal className="flex flex-col items-center text-center mb-16 md:mb-24">
             <span className="text-[#D4AF37] font-black tracking-[0.4em] uppercase text-xs mb-4 block">ONZE EXPERTISES</span>
-            <h2 className="text-5xl md:text-7xl font-medium text-[#0F172A] font-serif mb-8 italic text-center">Onze Oplossingen</h2>
+            <h2 className="text-3xl md:text-5xl lg:text-7xl font-medium text-[#0F172A] font-serif mb-8 italic text-center">Onze Oplossingen</h2>
             <div className="w-24 h-[3px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mb-10" />
             <p className="text-slate-500 max-w-2xl mx-auto text-xl leading-relaxed italic text-center">
               Geavanceerde methodieken voor maximaal wooncomfort en een duurzame toekomst.
             </p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 text-left">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-x-8 md:gap-y-12 text-left">
             {SERVICES.map((service, index) => (
               <ScrollReveal 
                 key={service.id} 
                 delay={index * 100}
-                className="group relative bg-slate-100 p-12 rounded-[4rem] transition-all duration-500 hover:bg-[#0F172A] hover:-translate-y-2 hover:shadow-[0_30px_60px_-15px_rgba(15,23,42,0.3)] border border-slate-200 shadow-lg"
+                className="group relative bg-slate-100 p-8 md:p-12 rounded-[4rem] transition-all duration-500 hover:bg-[#0F172A] hover:-translate-y-2 hover:shadow-[0_30px_60px_-15px_rgba(15,23,42,0.3)] border border-slate-200 shadow-lg"
               >
                 <span className="absolute top-10 right-10 text-8xl font-black text-black/[0.03] group-hover:text-white/[0.03] transition-colors font-sans pointer-events-none select-none">
                   0{index + 1}
@@ -407,13 +418,13 @@ export default function Home() {
       </section>
 
       {/* Werkwijze */}
-      <section id="werkwijze-in-beeld" className="py-20 bg-[#0F172A] relative overflow-hidden">
+      <section id="werkwijze-in-beeld" className="py-16 md:py-20 bg-[#0F172A] relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#D4AF37]/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#D4AF37]/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
             
             {/* Image Side */}
             <ScrollReveal className="relative lg:sticky lg:top-32 order-2 lg:order-1 scale-90 origin-center">
@@ -438,7 +449,7 @@ export default function Home() {
                 </div>
 
                 {/* Stat Badge */}
-                <div className="absolute -bottom-6 -right-6 bg-[#0F172A] border border-[#D4AF37]/30 p-6 rounded-[1.5rem] shadow-2xl max-w-[180px] hidden md:block">
+                <div className="relative mt-4 md:mt-0 md:absolute md:-bottom-6 md:-right-6 bg-[#0F172A] border border-[#D4AF37]/30 p-6 rounded-[1.5rem] shadow-2xl max-w-[180px] mx-auto md:mx-0 flex flex-col items-center md:block text-center md:text-left">
                   <p className="text-3xl font-serif font-bold text-[#D4AF37] mb-1">100%</p>
                   <p className="text-slate-400 text-[10px] uppercase tracking-widest leading-relaxed">Tevredenheid Garantie</p>
                 </div>
@@ -452,7 +463,7 @@ export default function Home() {
                    <div className="h-px w-12 bg-[#D4AF37]" />
                    <span className="text-[#D4AF37] font-black tracking-[0.4em] uppercase text-xs">ONZE WERKWIJZE</span>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-medium text-white font-serif mb-6 leading-tight">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-white font-serif mb-6 leading-tight">
                   Van Plan tot <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#FCD34D]">Warmte</span>
                 </h2>
                 <p className="text-slate-400 text-base mb-10 leading-relaxed border-l-2 border-[#D4AF37]/20 pl-6">
@@ -498,14 +509,14 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="py-24 bg-white relative overflow-hidden text-left">
+      <section className="py-16 md:py-24 bg-white relative overflow-hidden text-left">
         {/* Subtle Background Decor */}
         <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#D4AF37]/5 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
         
         <div className="max-w-3xl mx-auto px-4 relative z-10">
           <ScrollReveal className="text-center">
             <span className="text-[#D4AF37] font-black tracking-[0.4em] uppercase text-xs mb-4 block">FAQ</span>
-            <h2 className="text-4xl md:text-5xl font-medium text-[#0F172A] font-serif mb-12 leading-tight">Veelgestelde <span className="text-[#D4AF37]">Vragen</span></h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-[#0F172A] font-serif mb-8 md:mb-12 leading-tight">Veelgestelde <span className="text-[#D4AF37]">Vragen</span></h2>
           </ScrollReveal>
           
           <div className="space-y-4">
@@ -517,7 +528,7 @@ export default function Home() {
                     {activeFaq === i ? <Minus size={18}/> : <Plus size={18}/>}
                   </div>
                 </button>
-                <div className={`overflow-hidden transition-all duration-500 ${activeFaq === i ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className={`overflow-hidden transition-all duration-500 ${activeFaq === i ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'}`}>
                     <p className="text-slate-600 text-base leading-relaxed px-6 pb-6 border-t border-slate-100/50 pt-4">
                         {faq.a}
                     </p>
@@ -529,11 +540,11 @@ export default function Home() {
       </section>
 
       {/* Reviews */}
-      <section className="py-20 bg-[#0F172A] text-white relative overflow-hidden">
+      <section className="py-16 md:py-20 bg-[#0F172A] text-white relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 relative z-10">
           <ScrollReveal className="text-center mb-12">
             <span className="text-[#D4AF37] font-black tracking-[0.4em] uppercase text-xs mb-4 block">TESTIMONIALS</span>
-            <h2 className="text-4xl md:text-5xl font-medium text-white font-serif mb-6">Klanten over <span className="text-[#D4AF37]">KingDam</span></h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-white font-serif mb-6">Klanten over <span className="text-[#D4AF37]">KingDam</span></h2>
           </ScrollReveal>
 
           <div className="relative">
@@ -546,7 +557,7 @@ export default function Home() {
                 {REVIEWS.map((review) => (
                   <div key={review.id} className="w-full flex-shrink-0 px-4">
                     <div className="bg-white/5 backdrop-blur-md p-8 md:p-12 rounded-[2.5rem] border border-white/10 relative group hover:border-[#D4AF37]/30 transition-colors mx-auto max-w-2xl">
-                      <Quote className="absolute top-8 left-8 text-[#D4AF37]/20 w-12 h-12" />
+                      <Quote className="absolute top-8 left-8 text-[#D4AF37]/20 w-8 h-8 md:w-12 md:h-12" />
                       
                       <div className="flex flex-col items-center text-center relative z-10">
                         <div className="flex gap-1 mb-6">
@@ -555,7 +566,7 @@ export default function Home() {
                           ))}
                         </div>
                         
-                        <p className="text-xl md:text-2xl text-slate-200 font-serif italic mb-8 leading-relaxed">"{review.text}"</p>
+                        <p className="text-lg md:text-2xl text-slate-200 font-serif italic mb-8 leading-relaxed">"{review.text}"</p>
                         
                         <div className="flex items-center gap-4">
                           <div className="w-14 h-14 bg-gradient-to-br from-[#D4AF37] to-[#B8860B] rounded-full flex items-center justify-center text-[#0F172A] font-bold text-xl shadow-lg shadow-[#D4AF37]/20">
@@ -574,20 +585,22 @@ export default function Home() {
             </div>
 
             {/* Navigation Buttons */}
-            <button 
-              onClick={prevReview}
-              className="absolute top-1/2 -left-4 md:-left-12 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-[#D4AF37] hover:border-[#D4AF37] transition-all duration-300 group z-20"
-              aria-label="Previous review"
-            >
-              <ChevronLeft className="w-6 h-6 group-hover:-translate-x-0.5 transition-transform" />
-            </button>
-            <button 
-              onClick={nextReview}
-              className="absolute top-1/2 -right-4 md:-right-12 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-[#D4AF37] hover:border-[#D4AF37] transition-all duration-300 group z-20"
-              aria-label="Next review"
-            >
-              <ChevronRight className="w-6 h-6 group-hover:translate-x-0.5 transition-transform" />
-            </button>
+            <div className="flex justify-between w-full absolute top-1/2 -translate-y-1/2 px-2 md:px-0 pointer-events-none z-20">
+              <button 
+                onClick={prevReview}
+                className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-[#D4AF37] hover:border-[#D4AF37] transition-all duration-300 group pointer-events-auto md:-ml-16"
+                aria-label="Previous review"
+              >
+                <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 group-hover:-translate-x-0.5 transition-transform" />
+              </button>
+              <button 
+                onClick={nextReview}
+                className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-[#D4AF37] hover:border-[#D4AF37] transition-all duration-300 group pointer-events-auto md:-mr-16"
+                aria-label="Next review"
+              >
+                <ChevronRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-0.5 transition-transform" />
+              </button>
+            </div>
 
             {/* Dots Indicator */}
             <div className="flex justify-center gap-3 mt-8">
@@ -607,7 +620,7 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="py-32 relative overflow-hidden">
+      <section className="py-16 md:py-32 relative overflow-hidden">
         {/* Parallax Background */}
         <div 
           className="absolute inset-0 z-0"
@@ -622,8 +635,8 @@ export default function Home() {
         <div className="absolute inset-0 bg-white/60 z-0 backdrop-blur-[1px]" />
 
         <ScrollReveal className="max-w-5xl mx-auto px-4 text-center relative z-10">
-          <h2 className="text-5xl md:text-7xl font-medium text-[#0F172A] font-serif mb-8">Klaar voor de <span className="text-[#D4AF37]">Toekomst?</span></h2>
-          <p className="text-xl text-slate-600 mb-12 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-5xl lg:text-7xl font-medium text-[#0F172A] font-serif mb-8">Klaar voor de <span className="text-[#D4AF37]">Toekomst?</span></h2>
+          <p className="text-lg md:text-xl text-slate-600 mb-12 max-w-2xl mx-auto">
             Vraag vandaag nog uw vrijblijvende offerte aan en ervaar het verschil van premium kwaliteit.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">

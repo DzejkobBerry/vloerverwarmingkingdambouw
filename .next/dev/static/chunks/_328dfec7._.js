@@ -62,10 +62,10 @@ function Contact() {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "relative z-10 pt-32 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+                className: "relative z-10 pt-24 pb-16 md:pt-32 md:pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "text-center mb-20",
+                        className: "text-center mb-12 md:mb-20",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/20 backdrop-blur-sm mb-6 animate-fade-in-up",
@@ -92,7 +92,7 @@ function Contact() {
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                className: "text-5xl md:text-7xl font-medium text-white font-serif mb-6 leading-tight animate-fade-in-up delay-100",
+                                className: "text-4xl md:text-5xl lg:text-7xl font-medium text-white font-serif mb-6 leading-tight animate-fade-in-up delay-100",
                                 children: [
                                     "Start uw ",
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -127,18 +127,18 @@ function Contact() {
                         className: "grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "lg:col-span-5 space-y-8 animate-fade-in-left delay-300",
+                                className: "lg:col-span-5 space-y-6 md:space-y-8 animate-fade-in-left delay-300",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "grid gap-6",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "group bg-white/5 backdrop-blur-md p-8 rounded-[2rem] border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-500 hover:bg-white/10",
+                                                className: "group bg-white/5 backdrop-blur-md p-6 md:p-8 rounded-[2rem] border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-500 hover:bg-white/10",
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: "flex items-start gap-6",
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "w-14 h-14 rounded-2xl bg-[#D4AF37]/20 flex items-center justify-center text-[#D4AF37] group-hover:scale-110 transition-transform duration-500 border border-[#D4AF37]/20",
+                                                            className: "w-14 h-14 rounded-2xl bg-[#D4AF37]/20 flex items-center justify-center text-[#D4AF37] group-hover:scale-110 transition-transform duration-500 border border-[#D4AF37]/20 shrink-0",
                                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$phone$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Phone$3e$__["Phone"], {
                                                                 size: 24
                                                             }, void 0, false, {
@@ -171,7 +171,7 @@ function Contact() {
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                                                     href: "tel:+31612345678",
-                                                                    className: "text-xl font-bold text-white hover:text-[#D4AF37] transition-colors flex items-center gap-2 group-hover:translate-x-2 duration-300",
+                                                                    className: "text-lg md:text-xl font-bold text-white hover:text-[#D4AF37] transition-colors flex items-center gap-2 group-hover:translate-x-2 duration-300",
                                                                     children: [
                                                                         "+31 6 1234 5678 ",
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
@@ -206,12 +206,12 @@ function Contact() {
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "group bg-white/5 backdrop-blur-md p-8 rounded-[2rem] border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-500 hover:bg-white/10",
+                                                className: "group bg-white/5 backdrop-blur-md p-6 md:p-8 rounded-[2rem] border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-500 hover:bg-white/10",
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: "flex items-start gap-6",
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "w-14 h-14 rounded-2xl bg-[#D4AF37]/20 flex items-center justify-center text-[#D4AF37] group-hover:scale-110 transition-transform duration-500 border border-[#D4AF37]/20",
+                                                            className: "w-14 h-14 rounded-2xl bg-[#D4AF37]/20 flex items-center justify-center text-[#D4AF37] group-hover:scale-110 transition-transform duration-500 border border-[#D4AF37]/20 shrink-0",
                                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$mail$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Mail$3e$__["Mail"], {
                                                                 size: 24
                                                             }, void 0, false, {
@@ -244,7 +244,7 @@ function Contact() {
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                                                     href: "mailto:info@kingdambouw.nl",
-                                                                    className: "text-xl font-bold text-white hover:text-[#D4AF37] transition-colors flex items-center gap-2 group-hover:translate-x-2 duration-300",
+                                                                    className: "text-lg md:text-xl font-bold text-white hover:text-[#D4AF37] transition-colors flex items-center gap-2 group-hover:translate-x-2 duration-300",
                                                                     children: [
                                                                         "info@kingdambouw.nl ",
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
@@ -279,7 +279,7 @@ function Contact() {
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "bg-[#D4AF37] p-8 rounded-[2rem] shadow-2xl shadow-[#D4AF37]/20 relative overflow-hidden group",
+                                                className: "bg-[#D4AF37] p-6 md:p-8 rounded-[2rem] shadow-2xl shadow-[#D4AF37]/20 relative overflow-hidden group",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-700"
@@ -449,7 +449,7 @@ function Contact() {
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "lg:col-span-7 animate-fade-in-right delay-300",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "bg-white rounded-[3rem] p-8 md:p-12 shadow-2xl relative overflow-hidden",
+                                    className: "bg-white rounded-[2rem] md:rounded-[3rem] p-6 md:p-12 shadow-2xl relative overflow-hidden",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"
@@ -462,7 +462,7 @@ function Contact() {
                                             className: "relative z-10",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                    className: "text-3xl font-serif font-medium text-[#0F172A] mb-2",
+                                                    className: "text-2xl md:text-3xl font-serif font-medium text-[#0F172A] mb-2",
                                                     children: "Stuur een bericht"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/contact/page.tsx",
@@ -470,7 +470,7 @@ function Contact() {
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-slate-500 mb-10",
+                                                    className: "text-slate-500 mb-8 md:mb-10 text-sm md:text-base",
                                                     children: "Vul het formulier in en wij nemen zo spoedig mogelijk contact met u op."
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/contact/page.tsx",
@@ -514,7 +514,7 @@ function Contact() {
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                                                                     type: "text",
-                                                                                    className: "w-full bg-slate-50 border border-slate-200 text-[#0F172A] rounded-2xl py-4 pl-12 pr-4 focus:ring-2 focus:ring-[#D4AF37]/20 focus:border-[#D4AF37] outline-none transition-all placeholder:text-slate-300",
+                                                                                    className: "w-full bg-slate-50 border border-slate-200 text-[#0F172A] rounded-2xl py-3 md:py-4 pl-12 pr-4 focus:ring-2 focus:ring-[#D4AF37]/20 focus:border-[#D4AF37] outline-none transition-all placeholder:text-slate-300",
                                                                                     placeholder: "Uw naam"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/app/contact/page.tsx",
@@ -563,7 +563,7 @@ function Contact() {
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                                                                     type: "tel",
-                                                                                    className: "w-full bg-slate-50 border border-slate-200 text-[#0F172A] rounded-2xl py-4 pl-12 pr-4 focus:ring-2 focus:ring-[#D4AF37]/20 focus:border-[#D4AF37] outline-none transition-all placeholder:text-slate-300",
+                                                                                    className: "w-full bg-slate-50 border border-slate-200 text-[#0F172A] rounded-2xl py-3 md:py-4 pl-12 pr-4 focus:ring-2 focus:ring-[#D4AF37]/20 focus:border-[#D4AF37] outline-none transition-all placeholder:text-slate-300",
                                                                                     placeholder: "06 1234 5678"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/app/contact/page.tsx",
@@ -618,7 +618,7 @@ function Contact() {
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                                                             type: "email",
-                                                                            className: "w-full bg-slate-50 border border-slate-200 text-[#0F172A] rounded-2xl py-4 pl-12 pr-4 focus:ring-2 focus:ring-[#D4AF37]/20 focus:border-[#D4AF37] outline-none transition-all placeholder:text-slate-300",
+                                                                            className: "w-full bg-slate-50 border border-slate-200 text-[#0F172A] rounded-2xl py-3 md:py-4 pl-12 pr-4 focus:ring-2 focus:ring-[#D4AF37]/20 focus:border-[#D4AF37] outline-none transition-all placeholder:text-slate-300",
                                                                             placeholder: "naam@voorbeeld.nl"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/contact/page.tsx",
@@ -667,7 +667,7 @@ function Contact() {
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
                                                                             rows: 4,
-                                                                            className: "w-full bg-slate-50 border border-slate-200 text-[#0F172A] rounded-2xl py-4 pl-12 pr-4 focus:ring-2 focus:ring-[#D4AF37]/20 focus:border-[#D4AF37] outline-none transition-all placeholder:text-slate-300 resize-none",
+                                                                            className: "w-full bg-slate-50 border border-slate-200 text-[#0F172A] rounded-2xl py-3 md:py-4 pl-12 pr-4 focus:ring-2 focus:ring-[#D4AF37]/20 focus:border-[#D4AF37] outline-none transition-all placeholder:text-slate-300 resize-none",
                                                                             placeholder: "Vertel ons over uw project..."
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/contact/page.tsx",
@@ -687,7 +687,7 @@ function Contact() {
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                            className: "w-full bg-[#0F172A] text-white py-5 rounded-2xl font-bold tracking-wider hover:bg-[#D4AF37] transition-all duration-300 shadow-xl shadow-[#0F172A]/10 flex items-center justify-center gap-3 group active:scale-[0.98]",
+                                                            className: "w-full bg-[#0F172A] text-white py-4 md:py-5 rounded-2xl font-bold tracking-wider hover:bg-[#D4AF37] transition-all duration-300 shadow-xl shadow-[#0F172A]/10 flex items-center justify-center gap-3 group active:scale-[0.98]",
                                                             children: [
                                                                 "VERSTUUR BERICHT",
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$send$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Send$3e$__["Send"], {

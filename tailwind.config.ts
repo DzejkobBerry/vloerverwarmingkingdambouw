@@ -22,11 +22,16 @@ const config: Config = {
         'fade-in': 'fadeIn 0.5s ease-out',
         'ping-slow': 'ping 2s cubic-bezier(0, 0, 0.2, 1) infinite',
         'ping-small': 'pingSmall 1.5s cubic-bezier(0, 0, 0.2, 1) infinite',
+        'scroll-down': 'scroll 1.5s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
           '0%': { opacity: '0', transform: 'translateY(10px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        scroll: {
+          '0%': { transform: 'translateY(0)', opacity: '1' },
+          '100%': { transform: 'translateY(12px)', opacity: '0' },
         },
         pingSmall: {
           '75%, 100%': { transform: 'scale(1.4)', opacity: '0' },

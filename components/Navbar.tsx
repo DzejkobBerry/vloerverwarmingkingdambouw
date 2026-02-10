@@ -109,22 +109,51 @@ export default function Navbar() {
       
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-xl py-4 px-4 flex flex-col gap-4">
-            {[
-              { label: 'Home', action: () => handleNavigation('/') },
-              { label: 'Over Ons', action: () => handleNavigation('/', 'over-ons') },
-              { label: 'Diensten', action: () => handleNavigation('/', 'diensten') },
-              { label: 'Projecten', action: () => handleNavigation('/gallery') },
-              { label: 'Contact', action: () => handleNavigation('/contact') }
-            ].map((item) => (
-              <button
-                key={item.label}
-                onClick={item.action}
-                className="text-left text-slate-800 font-bold uppercase tracking-widest py-2 border-b border-slate-100 last:border-0"
-              >
-                {item.label}
-              </button>
-            ))}
+        <div className="md:hidden fixed inset-0 z-[100] bg-slate-900/95 backdrop-blur-xl animate-fade-in">
+           {/* Close Button */}
+           <div className="absolute top-6 right-6 z-50">
+             <button 
+               onClick={() => setIsMenuOpen(false)}
+               className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white border border-white/20 hover:bg-[#D4AF37] hover:border-[#D4AF37] transition-all duration-300"
+             >
+               <X size={24} />
+             </button>
+           </div>
+
+           {/* Menu Items */}
+           <div className="h-full flex flex-col justify-center px-8 gap-8">
+              {[
+                { label: 'Home', action: () => handleNavigation('/'), sub: 'Welkom bij KingDam' },
+                { label: 'Over Ons', action: () => handleNavigation('/', 'over-ons'), sub: 'Onze Missie & Visie' },
+                { label: 'Diensten', action: () => handleNavigation('/', 'diensten'), sub: 'Wat wij doen' },
+                { label: 'Projecten', action: () => handleNavigation('/gallery'), sub: 'Bekijk ons werk' },
+                { label: 'Contact', action: () => handleNavigation('/contact'), sub: 'Neem contact op' }
+              ].map((item, index) => (
+                <button
+                  key={item.label}
+                  onClick={item.action}
+                  className="group flex flex-col items-start text-left border-b border-white/10 pb-6 last:border-0"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <span className="text-3xl font-serif font-medium text-white mb-2 group-hover:text-[#D4AF37] transition-colors duration-300 flex items-center gap-3">
+                    {item.label}
+                    <ArrowRight className="w-6 h-6 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 text-[#D4AF37]" />
+                  </span>
+                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 group-hover:text-slate-300 transition-colors">
+                    {item.sub}
+                  </span>
+                </button>
+              ))}
+              
+              <div className="mt-8">
+                 <button 
+                  onClick={() => handleNavigation('/contact')}
+                  className="w-full bg-[#D4AF37] text-white py-4 rounded-xl font-black text-sm tracking-widest hover:bg-white hover:text-[#0F172A] transition-all flex items-center justify-center gap-2"
+                >
+                  OFFERTE AANVRAGEN <ArrowRight size={16} />
+                </button>
+              </div>
+           </div>
         </div>
       )}
     </nav>

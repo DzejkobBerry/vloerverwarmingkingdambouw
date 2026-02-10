@@ -223,38 +223,130 @@ function Navbar() {
                 columnNumber: 7
             }, this),
             isMenuOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "md:hidden absolute top-full left-0 w-full bg-white shadow-xl py-4 px-4 flex flex-col gap-4",
+                className: "md:hidden fixed inset-0 z-[100] bg-slate-900/95 backdrop-blur-xl animate-fade-in",
                 children: [
-                    {
-                        label: 'Home',
-                        action: ()=>handleNavigation('/')
-                    },
-                    {
-                        label: 'Over Ons',
-                        action: ()=>handleNavigation('/', 'over-ons')
-                    },
-                    {
-                        label: 'Diensten',
-                        action: ()=>handleNavigation('/', 'diensten')
-                    },
-                    {
-                        label: 'Projecten',
-                        action: ()=>handleNavigation('/gallery')
-                    },
-                    {
-                        label: 'Contact',
-                        action: ()=>handleNavigation('/contact')
-                    }
-                ].map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        onClick: item.action,
-                        className: "text-left text-slate-800 font-bold uppercase tracking-widest py-2 border-b border-slate-100 last:border-0",
-                        children: item.label
-                    }, item.label, false, {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "absolute top-6 right-6 z-50",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                            onClick: ()=>setIsMenuOpen(false),
+                            className: "w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white border border-white/20 hover:bg-[#D4AF37] hover:border-[#D4AF37] transition-all duration-300",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__["X"], {
+                                size: 24
+                            }, void 0, false, {
+                                fileName: "[project]/components/Navbar.tsx",
+                                lineNumber: 119,
+                                columnNumber: 16
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/components/Navbar.tsx",
+                            lineNumber: 115,
+                            columnNumber: 14
+                        }, this)
+                    }, void 0, false, {
                         fileName: "[project]/components/Navbar.tsx",
-                        lineNumber: 120,
-                        columnNumber: 15
-                    }, this))
-            }, void 0, false, {
+                        lineNumber: 114,
+                        columnNumber: 12
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "h-full flex flex-col justify-center px-8 gap-8",
+                        children: [
+                            [
+                                {
+                                    label: 'Home',
+                                    action: ()=>handleNavigation('/'),
+                                    sub: 'Welkom bij KingDam'
+                                },
+                                {
+                                    label: 'Over Ons',
+                                    action: ()=>handleNavigation('/', 'over-ons'),
+                                    sub: 'Onze Missie & Visie'
+                                },
+                                {
+                                    label: 'Diensten',
+                                    action: ()=>handleNavigation('/', 'diensten'),
+                                    sub: 'Wat wij doen'
+                                },
+                                {
+                                    label: 'Projecten',
+                                    action: ()=>handleNavigation('/gallery'),
+                                    sub: 'Bekijk ons werk'
+                                },
+                                {
+                                    label: 'Contact',
+                                    action: ()=>handleNavigation('/contact'),
+                                    sub: 'Neem contact op'
+                                }
+                            ].map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                    onClick: item.action,
+                                    className: "group flex flex-col items-start text-left border-b border-white/10 pb-6 last:border-0",
+                                    style: {
+                                        animationDelay: `${index * 100}ms`
+                                    },
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "text-3xl font-serif font-medium text-white mb-2 group-hover:text-[#D4AF37] transition-colors duration-300 flex items-center gap-3",
+                                            children: [
+                                                item.label,
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
+                                                    className: "w-6 h-6 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 text-[#D4AF37]"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/components/Navbar.tsx",
+                                                    lineNumber: 140,
+                                                    columnNumber: 21
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/components/Navbar.tsx",
+                                            lineNumber: 138,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 group-hover:text-slate-300 transition-colors",
+                                            children: item.sub
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/Navbar.tsx",
+                                            lineNumber: 142,
+                                            columnNumber: 19
+                                        }, this)
+                                    ]
+                                }, item.label, true, {
+                                    fileName: "[project]/components/Navbar.tsx",
+                                    lineNumber: 132,
+                                    columnNumber: 17
+                                }, this)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "mt-8",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                    onClick: ()=>handleNavigation('/contact'),
+                                    className: "w-full bg-[#D4AF37] text-white py-4 rounded-xl font-black text-sm tracking-widest hover:bg-white hover:text-[#0F172A] transition-all flex items-center justify-center gap-2",
+                                    children: [
+                                        "OFFERTE AANVRAGEN ",
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
+                                            size: 16
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/Navbar.tsx",
+                                            lineNumber: 153,
+                                            columnNumber: 37
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/components/Navbar.tsx",
+                                    lineNumber: 149,
+                                    columnNumber: 18
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/components/Navbar.tsx",
+                                lineNumber: 148,
+                                columnNumber: 15
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/components/Navbar.tsx",
+                        lineNumber: 124,
+                        columnNumber: 12
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "[project]/components/Navbar.tsx",
                 lineNumber: 112,
                 columnNumber: 9
