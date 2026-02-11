@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/mcsku/Desktop/vloerverwarmingkingdambouw-1/app/contact/layout.tsx"],"sourcesContent":["import { Metadata } from 'next';\n\nexport const metadata: Metadata = {\n  title: 'Contact',\n  description: 'Neem contact op met KingDam Bouw voor een vrijblijvende offerte of advies over vloerverwarming. Wij staan klaar voor al uw vragen.',\n};\n\nexport default function ContactLayout({\n  children,\n}: {\n  children: React.ReactNode;\n}) {\n  return <>{children}</>;\n}\n"],"names":[],"mappings":";;;;;;;;AAEO,MAAM,WAAqB;IAChC,OAAO;IACP,aAAa;AACf;AAEe,SAAS,cAAc,EACpC,QAAQ,EAGT;IACC,qBAAO;kBAAG;;AACZ"}}]
+}

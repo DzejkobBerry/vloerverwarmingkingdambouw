@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import ScrollReveal from '../components/ScrollReveal';
 import { 
   ArrowRight, 
@@ -31,7 +32,12 @@ const BackgroundMusic = () => {
   const [playerId, setPlayerId] = useState<string>("");
 
   useEffect(() => {
-    setPlayerId(`youtube-player-${Math.random().toString(36).substr(2, 9)}`);
+    // Only initialize player on interaction or after delay to save mobile resources
+    const initTimer = setTimeout(() => {
+      setPlayerId(`youtube-player-${Math.random().toString(36).substr(2, 9)}`);
+    }, 2500); // Delay initialization
+
+    return () => clearTimeout(initTimer);
   }, []);
 
   useEffect(() => {
@@ -174,10 +180,13 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
+          <Image 
             src="https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Home/backgroundHero.webp" 
-            className="w-full h-full object-cover grayscale-[10%]"
+            className="object-cover grayscale-[10%]"
             alt="KingDam Vloerverwarming"
+            fill
+            priority
+            quality={90}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A] via-[#0F172A]/80 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-transparent to-transparent opacity-90" />

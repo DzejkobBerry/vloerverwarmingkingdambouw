@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { LayoutGrid, Play, Image as ImageIcon, Film, X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 import { GALLERY, VIDEOS } from '../../constants';
 
@@ -66,11 +67,16 @@ export default function Gallery() {
             className="relative max-w-7xl max-h-[85vh] rounded-[2rem] overflow-hidden shadow-2xl shadow-black/50"
             onClick={(e) => e.stopPropagation()}
           >
-            <img 
-              src={GALLERY[lightboxIndex].url} 
-              alt={GALLERY[lightboxIndex].description} 
-              className="w-full h-full max-h-[85vh] object-contain"
-            />
+            <div className="relative w-full h-[85vh] md:h-[80vh] min-w-[300px] md:min-w-[800px]">
+              <Image 
+                src={GALLERY[lightboxIndex].url} 
+                alt={GALLERY[lightboxIndex].description} 
+                fill
+                className="object-contain"
+                sizes="100vw"
+                priority
+              />
+            </div>
             <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 bg-gradient-to-t from-black/90 to-transparent">
               <span className="text-[#D4AF37] font-black uppercase tracking-widest text-xs md:text-sm block mb-2">
                 {GALLERY[lightboxIndex].category}
@@ -149,10 +155,12 @@ export default function Gallery() {
                   onClick={() => setLightboxIndex(index)} 
                   className={`group relative bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all border border-slate-100 cursor-zoom-in ${getGridClass(index)}`}
                 >
-                  <img 
+                  <Image 
                     src={item.url} 
                     alt={item.description} 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" 
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-1000" 
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                   {/* Overlay with zoom hint */}
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
@@ -187,10 +195,12 @@ export default function Gallery() {
                   key={item.id} 
                   className={`group relative bg-slate-900 rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all border border-slate-800 cursor-default ${getGridClass(index)}`}
                 >
-                  <img 
+                  <Image 
                     src={item.thumbnail} 
                     alt={item.description} 
-                    className="w-full h-full object-cover grayscale opacity-40 group-hover:opacity-30 transition-all duration-1000" 
+                    fill
+                    className="object-cover grayscale opacity-40 group-hover:opacity-30 transition-all duration-1000" 
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-10">
                      <div className="w-16 h-16 mb-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-full flex items-center justify-center text-slate-400 group-hover:text-[#D4AF37] group-hover:border-[#D4AF37]/50 transition-all duration-500">

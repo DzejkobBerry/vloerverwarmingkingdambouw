@@ -6,6 +6,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'images.unsplash.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'images-website-bloompixel.s3.eu-north-1.amazonaws.com',
+      },
     ],
   },
   async redirects() {
