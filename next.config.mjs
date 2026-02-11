@@ -8,6 +8,15 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/poczta',
+        destination: 'https://zimbra1.mail.ovh.net',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

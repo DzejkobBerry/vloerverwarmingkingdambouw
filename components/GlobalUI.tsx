@@ -26,7 +26,7 @@ export default function GlobalUI() {
         }`}
       >
         <a 
-          href="https://wa.me/31612345678" 
+          href="https://wa.me/31613931051" 
           target="_blank" 
           rel="noopener noreferrer" 
           className="bg-[#10B981] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center group"

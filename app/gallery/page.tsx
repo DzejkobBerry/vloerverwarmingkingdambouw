@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { LayoutGrid, Play, Image as ImageIcon, Film } from 'lucide-react';
+import { LayoutGrid, Play, Image as ImageIcon, Film, X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 import { GALLERY, VIDEOS } from '../../constants';
 
 export default function Gallery() {
@@ -20,8 +20,69 @@ export default function Gallery() {
     return 'md:col-span-1 md:row-span-1';
   };
 
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (lightboxIndex !== null) {
+      setLightboxIndex((lightboxIndex + 1) % GALLERY.length);
+    }
+  };
+
+  const handlePrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (lightboxIndex !== null) {
+      setLightboxIndex((lightboxIndex - 1 + GALLERY.length) % GALLERY.length);
+    }
+  };
+
   return (
     <>
+      {lightboxIndex !== null && (
+        <div 
+          className="fixed inset-0 z-50 bg-[#0F172A]/95 backdrop-blur-xl flex items-center justify-center p-4 md:p-8 animate-fade-in"
+          onClick={() => setLightboxIndex(null)}
+        >
+          <button 
+            onClick={() => setLightboxIndex(null)}
+            className="absolute top-4 right-4 md:top-8 md:right-8 w-12 h-12 rounded-full bg-white/10 hover:bg-[#D4AF37] text-white flex items-center justify-center transition-all duration-300 group z-50"
+          >
+            <X size={24} className="group-hover:rotate-90 transition-transform duration-300" />
+          </button>
+
+          <button 
+            onClick={handlePrev}
+            className="absolute left-4 md:left-8 w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/10 hover:bg-[#D4AF37] text-white flex items-center justify-center transition-all duration-300 group z-50"
+          >
+            <ChevronLeft size={28} className="group-hover:-translate-x-1 transition-transform" />
+          </button>
+
+          <button 
+            onClick={handleNext}
+            className="absolute right-4 md:right-8 w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/10 hover:bg-[#D4AF37] text-white flex items-center justify-center transition-all duration-300 group z-50"
+          >
+            <ChevronRight size={28} className="group-hover:translate-x-1 transition-transform" />
+          </button>
+
+          <div 
+            className="relative max-w-7xl max-h-[85vh] rounded-[2rem] overflow-hidden shadow-2xl shadow-black/50"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img 
+              src={GALLERY[lightboxIndex].url} 
+              alt={GALLERY[lightboxIndex].description} 
+              className="w-full h-full max-h-[85vh] object-contain"
+            />
+            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 bg-gradient-to-t from-black/90 to-transparent">
+              <span className="text-[#D4AF37] font-black uppercase tracking-widest text-xs md:text-sm block mb-2">
+                {GALLERY[lightboxIndex].category}
+              </span>
+              <p className="text-white font-serif text-xl md:text-3xl">
+                {GALLERY[lightboxIndex].description}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="pt-24 pb-20 md:pt-32 md:pb-32 min-h-screen bg-slate-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="relative text-center mb-12 md:mb-24">
@@ -93,37 +154,57 @@ export default function Gallery() {
                     alt={item.description} 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" 
                   />
-                  <div className="absolute inset-0 bg-[#0F172A]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                     <div className="w-16 h-16 bg-[#D4AF37] rounded-full flex items-center justify-center text-white scale-0 group-hover:scale-100 transition-transform duration-300">
-                       <LayoutGrid size={24} />
-                     </div>
+                  {/* Overlay with zoom hint */}
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
+                    <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 flex flex-col items-center">
+                      <div className="w-12 h-12 rounded-full bg-[#D4AF37]/90 flex items-center justify-center mb-3 shadow-lg">
+                        <ZoomIn className="w-6 h-6 text-white" />
+                      </div>
+                      <span className="text-white font-medium tracking-wide text-sm uppercase">Vergroten</span>
+                    </div>
                   </div>
-                  <div className="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-[#0F172A]/90 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                    <span className="text-[#D4AF37] text-[10px] font-black uppercase tracking-widest block mb-1">{item.category}</span>
-                    <p className="text-white font-serif text-lg">{item.description}</p>
+
+                  {/* Content Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                    <span className="text-[#D4AF37] text-xs font-bold uppercase tracking-wider mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
+                      {item.category}
+                    </span>
+                    <p className="text-white font-serif text-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
+                      {item.description}
+                    </p>
                   </div>
+
+                  {/* Always visible hint (desktop & mobile) */}
+                <div className="absolute top-4 right-4 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full flex items-center gap-2 border border-white/10 transition-transform duration-300 group-hover:scale-105 z-20">
+                  <ZoomIn className="w-3.5 h-3.5 text-white/90" />
+                  <span className="text-white/90 text-[10px] font-bold uppercase tracking-widest">Vergroten</span>
+                </div>
                 </div>
               ))
             ) : (
               VIDEOS.map((item, index) => (
                 <div 
                   key={item.id} 
-                  className={`group relative bg-slate-900 rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all border border-slate-800 cursor-pointer ${getGridClass(index)}`}
+                  className={`group relative bg-slate-900 rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all border border-slate-800 cursor-default ${getGridClass(index)}`}
                 >
                   <img 
                     src={item.thumbnail} 
                     alt={item.description} 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-80 group-hover:opacity-60" 
+                    className="w-full h-full object-cover grayscale opacity-40 group-hover:opacity-30 transition-all duration-1000" 
                   />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                     <div className="w-20 h-20 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-white group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] group-hover:scale-110 transition-all duration-500 shadow-xl">
-                       <Play size={32} fill="currentColor" className="ml-1" />
+                  <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-10">
+                     <div className="w-16 h-16 mb-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-full flex items-center justify-center text-slate-400 group-hover:text-[#D4AF37] group-hover:border-[#D4AF37]/50 transition-all duration-500">
+                       <Film size={28} />
+                     </div>
+                     <div className="bg-[#0F172A]/80 backdrop-blur-sm px-6 py-3 rounded-xl border border-white/10 group-hover:border-[#D4AF37]/30 transition-colors">
+                       <span className="text-[#D4AF37] text-[10px] font-black uppercase tracking-[0.2em] block mb-1">Binnenkort</span>
+                       <p className="text-white font-serif text-sm">Videomateriaal volgt spoedig</p>
                      </div>
                   </div>
-                  <div className="absolute bottom-6 left-6 right-6">
+                  <div className="absolute bottom-6 left-6 right-6 opacity-40 group-hover:opacity-100 transition-opacity">
                     <div className="bg-[#0F172A]/80 backdrop-blur-md p-4 rounded-2xl border border-white/10">
-                      <span className="text-[#D4AF37] text-[10px] font-black uppercase tracking-widest block mb-1">{item.category}</span>
-                      <p className="text-white font-serif text-lg">{item.description}</p>
+                      <span className="text-slate-500 text-[10px] font-black uppercase tracking-widest block mb-1">{item.category}</span>
+                      <p className="text-slate-300 font-serif text-lg">{item.description}</p>
                     </div>
                   </div>
                 </div>

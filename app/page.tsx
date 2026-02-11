@@ -189,9 +189,9 @@ export default function Home() {
               <ShieldCheck className="w-5 h-5 text-[#D4AF37]" />
               <span className="text-[10px] font-black uppercase tracking-[0.2em]">Hoogste Klantwaardering in de Regio</span>
             </div>
-            <h1 className="text-3xl md:text-6xl lg:text-7xl font-medium text-white mb-8 leading-[1.2] font-serif">
+            <h1 className="text-3xl md:text-6xl lg:text-7xl font-medium text-[#D4AF37] mb-8 leading-[1.2] font-serif">
               Specialisten in warme voeten <br />
-              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-white via-[#D4AF37] to-[#B8860B]">en een gerust hart.</span>
+              <span className="italic">en een gerust hart.</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed mx-auto md:mx-0">
               Al 7 jaar specialist in premium vloerverwarming. Wij bouwen aan de toekomst van uw comfort met passie en vakmanschap.

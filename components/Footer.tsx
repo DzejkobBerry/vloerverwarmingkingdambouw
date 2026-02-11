@@ -42,17 +42,24 @@ export default function Footer() {
             className="h-16 w-auto object-contain" 
           />
 
-          <div className="hidden xl:flex items-center gap-6 border-l border-white/10 pl-6">
-            {[
-              { label: 'Home', action: () => handleNavigation('/') },
-              { label: 'Over Ons', action: () => handleNavigation('/', 'over-ons') },
-              { label: 'Projecten', action: () => handleNavigation('/gallery') },
-              { label: 'Contact', action: () => handleNavigation('/contact') }
-            ].map((item) => (
-              <button key={item.label} onClick={item.action} className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-white transition-colors">
-                {item.label}
-              </button>
-            ))}
+          <div className="hidden xl:flex flex-col items-start gap-4 border-l border-white/10 pl-6">
+            <div className="flex items-center gap-6">
+              {[
+                { label: 'Home', action: () => handleNavigation('/') },
+                { label: 'Over Ons', action: () => handleNavigation('/', 'over-ons') },
+                { label: 'Projecten', action: () => handleNavigation('/gallery') },
+                { label: 'Contact', action: () => handleNavigation('/contact') }
+              ].map((item) => (
+                <button key={item.label} onClick={item.action} className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-white transition-colors">
+                  {item.label}
+                </button>
+              ))}
+            </div>
+            <div className="flex items-center gap-4">
+              <Instagram size={18} className="text-slate-400 hover:text-[#D4AF37] transition-all cursor-pointer hover:scale-110" />
+              <Facebook size={18} className="text-slate-400 hover:text-[#D4AF37] transition-all cursor-pointer hover:scale-110" />
+              <Linkedin size={18} className="text-slate-400 hover:text-[#D4AF37] transition-all cursor-pointer hover:scale-110" />
+            </div>
           </div>
 
           <div className="flex flex-col sm:flex-row items-center gap-6 lg:gap-10 border-l border-white/10 pl-6">
@@ -68,18 +75,12 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row items-center gap-6 lg:gap-10 border-l border-white/10 pl-6">
             <div className="flex items-center gap-3">
               <Phone size={16} className="text-[#D4AF37]" />
-              <span className="text-[10px] font-black uppercase tracking-widest text-white">+31 6 1234 5678</span>
+              <span className="text-[10px] font-black uppercase tracking-widest text-white">+31 6 1393 1051</span>
             </div>
             <div className="flex items-center gap-3">
               <Mail size={16} className="text-slate-400" />
-              <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">info@kingdambouw.nl</span>
+              <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">info@vloerverwarmingkingdambouw.nl</span>
             </div>
-          </div>
-
-          <div className="flex items-center gap-4 pl-6 border-l border-white/10">
-            <Instagram size={18} className="text-slate-400 hover:text-[#D4AF37] transition-all cursor-pointer hover:scale-110" />
-            <Facebook size={18} className="text-slate-400 hover:text-[#D4AF37] transition-all cursor-pointer hover:scale-110" />
-            <Linkedin size={18} className="text-slate-400 hover:text-[#D4AF37] transition-all cursor-pointer hover:scale-110" />
           </div>
 
         </div>

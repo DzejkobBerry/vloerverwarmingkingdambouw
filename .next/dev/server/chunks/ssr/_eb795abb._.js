@@ -177,57 +177,195 @@ const PROCESS = [
 const GALLERY = [
     {
         id: 'g1',
-        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Home/result-back-view-three-men-protective-helmets-holding-hands-his-waist-standing-construction-site-loo.webp',
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-04+at+16.45.43_11zon.webp',
         category: 'Kwaliteit',
-        description: 'Gegarandeerde Kwaliteit'
+        description: 'Gegarandeerd Vakmanschap'
     },
     {
         id: 'g2',
-        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Home/service-man-instelling-house-heating-system-floor.webp',
-        category: 'Vakmanschap',
-        description: 'Vakmanschap in Detail'
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-04+at+16.45.44+(1)_11zon.webp',
+        category: 'Service',
+        description: 'Uitstekende Service'
     },
     {
         id: 'g3',
-        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Home/service-man-instelling-house-heating-system-floor-_1_.webp',
-        category: 'Exclusiviteit',
-        description: 'Koning in Comfort'
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-04+at+16.45.44+(2)_11zon.webp',
+        category: 'Montage',
+        description: 'Professionele Installatie'
     },
     {
         id: 'g4',
-        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Home/result-back-view-three-men-protective-helmets-holding-hands-his-waist-standing-construction-site-loo.webp',
-        category: 'Duurzaamheid',
-        description: 'Duurzaam Resultaat'
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-04+at+16.45.44+(3)_11zon.webp',
+        category: 'Afwerking',
+        description: 'Perfecte Afwerking'
     },
     {
         id: 'g5',
-        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Home/service-man-instelling-house-heating-system-floor.webp',
-        category: 'Innovatie',
-        description: 'Innovatieve Technieken'
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-04+at+16.45.44+(4)_11zon.webp',
+        category: 'Materiaal',
+        description: 'Hoogwaardige Materialen'
     },
     {
         id: 'g6',
-        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Home/service-man-instelling-house-heating-system-floor-_1_.webp',
-        category: 'Precisie',
-        description: 'Stabiliteit & Vertrouwen'
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-04+at+16.45.44+(6)_11zon.webp',
+        category: 'Resultaat',
+        description: 'Duurzaam Resultaat'
     },
     {
         id: 'g7',
-        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Home/result-back-view-three-men-protective-helmets-holding-hands-his-waist-standing-construction-site-loo.webp',
-        category: 'Professionaliteit',
-        description: 'Professionele Afwerking'
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-04+at+16.45.44+(7)_11zon.webp',
+        category: 'Comfort',
+        description: 'Optimaal Wooncomfort'
     },
     {
         id: 'g8',
-        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Home/service-man-instelling-house-heating-system-floor.webp',
-        category: 'Comfort',
-        description: 'Uw Comfort, Onze Zorg'
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-04+at+16.45.44+(8)_11zon.webp',
+        category: 'Precisie',
+        description: 'Nauwkeurige Uitvoering'
     },
     {
         id: 'g9',
-        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Home/service-man-instelling-house-heating-system-floor-_1_.webp',
-        category: 'Passie',
-        description: 'Passie voor Warmte'
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-04+at+16.45.44+(9)_11zon.webp',
+        category: 'Expertise',
+        description: 'Jarenlange Ervaring'
+    },
+    {
+        id: 'g10',
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-04+at+16.45.44_11zon.webp',
+        category: 'Betrouwbaar',
+        description: 'Afspraak is Afspraak'
+    },
+    {
+        id: 'g11',
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-08+at+00.00.53+(1)_11zon.webp',
+        category: 'Totaal',
+        description: 'Complete Oplossingen'
+    },
+    {
+        id: 'g12',
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-08+at+00.00.53+(2)_11zon.webp',
+        category: 'Efficiëntie',
+        description: 'Energiezuinig Verwarmen'
+    },
+    {
+        id: 'g13',
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-08+at+00.00.53+(3)_11zon.webp',
+        category: 'Vakwerk',
+        description: 'Meesterschap in Bouw'
+    },
+    {
+        id: 'g14',
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-08+at+00.00.53_11zon.webp',
+        category: 'Zorgvuldig',
+        description: 'Oog voor Detail'
+    },
+    {
+        id: 'g15',
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-08+at+00.11.59+(1)_11zon.webp',
+        category: 'Partner',
+        description: 'Uw Betrouwbare Partner'
+    },
+    {
+        id: 'g16',
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-08+at+00.12.00+(1)_11zon.webp',
+        category: 'Succes',
+        description: 'Succesvolle Realisatie'
+    },
+    {
+        id: 'g17',
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-08+at+00.12.00+(2)_11zon.webp',
+        category: 'Warmte',
+        description: 'Comfortabele Warmte'
+    },
+    {
+        id: 'g18',
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-08+at+00.12.00+(3)_11zon.webp',
+        category: 'Techniek',
+        description: 'Technische Perfectie'
+    },
+    {
+        id: 'g19',
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-08+at+00.12.00+(4)_11zon.webp',
+        category: 'Esthetiek',
+        description: 'Strakke Lijnen'
+    },
+    {
+        id: 'g20',
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-08+at+00.12.00+(5)_11zon.webp',
+        category: 'Tevredenheid',
+        description: 'Klanttevredenheid Garantie'
+    },
+    {
+        id: 'g21',
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-08+at+00.12.00+(6)_11zon.webp',
+        category: 'Wonen',
+        description: 'Modern Wooncomfort'
+    },
+    {
+        id: 'g22',
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-08+at+00.12.00_11zon.webp',
+        category: 'Duurzaam',
+        description: 'Toekomstbestendig'
+    },
+    {
+        id: 'g23',
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-08+at+00.12.01_11zon.webp',
+        category: 'Snelheid',
+        description: 'Snelle & Nette Service'
+    },
+    {
+        id: 'g24',
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-08+at+00.15.26_11zon.webp',
+        category: 'Netheid',
+        description: 'Schoon Ogeleverd'
+    },
+    {
+        id: 'g25',
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-08+at+00.16.48_11zon.webp',
+        category: 'Certificaat',
+        description: 'Gecertificeerd Vakwerk'
+    },
+    {
+        id: 'g26',
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-08+at+00.18.36_11zon.webp',
+        category: 'Renovatie',
+        description: 'Specialist in Renovatie'
+    },
+    {
+        id: 'g27',
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-08+at+00.19.08_11zon.webp',
+        category: 'Innovatie',
+        description: 'Nieuwste Technieken'
+    },
+    {
+        id: 'g28',
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-09+at+12.55.34+(1)_11zon.webp',
+        category: 'Flexibel',
+        description: 'Oplossingen op Maat'
+    },
+    {
+        id: 'g29',
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-09+at+12.55.34+(2)_11zon.webp',
+        category: 'Vloer',
+        description: 'Egaal & Strak'
+    },
+    {
+        id: 'g30',
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-09+at+12.55.34+(3)_11zon.webp',
+        category: 'Plezier',
+        description: 'Jarenlang Woonplezier'
+    },
+    {
+        id: 'g31',
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-09+at+12.55.34_11zon.webp',
+        category: 'Klant',
+        description: 'Tevreden Klanten'
+    },
+    {
+        id: 'g32',
+        url: 'https://images-website-bloompixel.s3.eu-north-1.amazonaws.com/KingDam.bouw/Projecten/WhatsApp+Image+2026-02-09+at+12.55.35_11zon.webp',
+        category: 'KingDam',
+        description: 'KingDam Kwaliteit'
     }
 ];
 const VIDEOS = [
@@ -583,7 +721,7 @@ function Home() {
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                    className: "text-3xl md:text-6xl lg:text-7xl font-medium text-white mb-8 leading-[1.2] font-serif",
+                                    className: "text-3xl md:text-6xl lg:text-7xl font-medium text-[#D4AF37] mb-8 leading-[1.2] font-serif",
                                     children: [
                                         "Specialisten in warme voeten ",
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
@@ -592,7 +730,7 @@ function Home() {
                                             columnNumber: 44
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: "italic text-transparent bg-clip-text bg-gradient-to-r from-white via-[#D4AF37] to-[#B8860B]",
+                                            className: "italic",
                                             children: "en een gerust hart."
                                         }, void 0, false, {
                                             fileName: "[project]/app/page.tsx",

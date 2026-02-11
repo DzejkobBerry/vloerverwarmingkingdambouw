@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Phone, 
   Mail, 
@@ -9,12 +9,95 @@ import {
   User, 
   MessageSquare, 
   Send,
-  ArrowRight
+  ArrowRight,
+  CheckCircle,
+  X,
+  FileText
 } from 'lucide-react';
 
 export default function Contact() {
+  const [showModal, setShowModal] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError('');
+
+    try {
+      const res = await fetch('https://www.bloompixel.studio/api/forms/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': process.env.NEXT_PUBLIC_API_KEY || 'bp_live_bgiyvtywjuwf8m9odqmrbka8'
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) throw new Error('Er is een fout opgetreden bij het verzenden van het bericht.');
+
+      setShowModal(true);
+      setFormData({
+        name: '',
+        phone: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+    } catch (err) {
+      console.error(err);
+      setError('Er is iets misgegaan. Probeer het later opnieuw of neem telefonisch contact op.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="relative min-h-screen bg-slate-900 overflow-hidden">
+      {/* Success Modal */}
+      {showModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
+          <div className="bg-white rounded-[2rem] p-8 md:p-12 max-w-lg w-full relative shadow-2xl animate-scale-up">
+            <button 
+              onClick={() => setShowModal(false)}
+              className="absolute top-6 right-6 text-slate-400 hover:text-[#0F172A] transition-colors"
+            >
+              <X size={24} />
+            </button>
+            <div className="flex flex-col items-center text-center">
+              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6 text-green-600">
+                <CheckCircle size={40} />
+              </div>
+              <h3 className="text-2xl md:text-3xl font-serif font-medium text-[#0F172A] mb-4">
+                Bedankt voor uw bericht!
+              </h3>
+              <p className="text-slate-500 text-lg leading-relaxed mb-8">
+                We hebben uw bericht in goede orde ontvangen. Ons team neemt zo spoedig mogelijk contact met u op.
+              </p>
+              <button 
+                onClick={() => setShowModal(false)}
+                className="bg-[#D4AF37] text-white px-10 py-4 rounded-xl font-bold tracking-wider hover:bg-[#B8860B] transition-all shadow-xl shadow-[#D4AF37]/20 w-full"
+              >
+                SLUITEN
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -59,8 +142,8 @@ export default function Contact() {
                   <div>
                     <h3 className="text-white font-serif text-xl mb-1">Telefonisch</h3>
                     <p className="text-slate-400 text-sm mb-3">Direct contact met een expert</p>
-                    <a href="tel:+31612345678" className="text-lg md:text-xl font-bold text-white hover:text-[#D4AF37] transition-colors flex items-center gap-2 group-hover:translate-x-2 duration-300">
-                      +31 6 1234 5678 <ArrowRight size={16} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <a href="tel:+31613931051" className="text-lg md:text-xl font-bold text-white hover:text-[#D4AF37] transition-colors flex items-center gap-2 group-hover:translate-x-2 duration-300">
+                      +31 6 1393 1051 <ArrowRight size={16} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                     </a>
                   </div>
                 </div>
@@ -74,8 +157,8 @@ export default function Contact() {
                   <div>
                     <h3 className="text-white font-serif text-xl mb-1">E-mail</h3>
                     <p className="text-slate-400 text-sm mb-3">Reactie binnen 24 uur</p>
-                    <a href="mailto:info@kingdambouw.nl" className="text-lg md:text-xl font-bold text-white hover:text-[#D4AF37] transition-colors flex items-center gap-2 group-hover:translate-x-2 duration-300">
-                      info@kingdambouw.nl <ArrowRight size={16} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <a href="mailto:info@vloerverwarmingkingdambouw.nl" className="text-sm md:text-base font-bold text-white hover:text-[#D4AF37] transition-colors flex items-center gap-2 group-hover:translate-x-2 duration-300">
+                      info@vloerverwarmingkingdambouw.nl <ArrowRight size={16} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                     </a>
                   </div>
                 </div>
@@ -90,7 +173,23 @@ export default function Contact() {
                   </div>
                   <div className="space-y-4 text-[#0F172A]">
                     <div className="flex justify-between items-center border-b border-[#0F172A]/10 pb-2">
-                      <span className="font-bold text-xs uppercase tracking-widest opacity-70">Ma - Vr</span>
+                      <span className="font-bold text-xs uppercase tracking-widest opacity-70">Maandag</span>
+                      <span className="font-serif text-lg">07:00 - 20:00</span>
+                    </div>
+                    <div className="flex justify-between items-center border-b border-[#0F172A]/10 pb-2">
+                      <span className="font-bold text-xs uppercase tracking-widest opacity-70">Dinsdag</span>
+                      <span className="font-serif text-lg">07:00 - 20:00</span>
+                    </div>
+                    <div className="flex justify-between items-center border-b border-[#0F172A]/10 pb-2">
+                      <span className="font-bold text-xs uppercase tracking-widest opacity-70">Woensdag</span>
+                      <span className="font-serif text-lg">07:00 - 20:00</span>
+                    </div>
+                    <div className="flex justify-between items-center border-b border-[#0F172A]/10 pb-2">
+                      <span className="font-bold text-xs uppercase tracking-widest opacity-70">Donderdag</span>
+                      <span className="font-serif text-lg">07:00 - 20:00</span>
+                    </div>
+                    <div className="flex justify-between items-center border-b border-[#0F172A]/10 pb-2">
+                      <span className="font-bold text-xs uppercase tracking-widest opacity-70">Vrijdag</span>
                       <span className="font-serif text-lg">07:00 - 20:00</span>
                     </div>
                     <div className="flex justify-between items-center border-b border-[#0F172A]/10 pb-2">
@@ -102,16 +201,7 @@ export default function Contact() {
               </div>
             </div>
             
-            {/* Location */}
-            <div className="flex items-center gap-4 p-6 rounded-3xl bg-white/5 border border-white/5 backdrop-blur-sm">
-              <div className="p-3 bg-white/10 rounded-xl text-[#D4AF37]">
-                <MapPin size={24} />
-              </div>
-              <div>
-                <p className="text-xs font-black uppercase tracking-widest text-slate-500 mb-1">Hoofdkantoor</p>
-                <p className="text-white font-medium">Hoofdstraat 123, 1011 AB Amsterdam</p>
-              </div>
-            </div>
+
           </div>
 
           {/* Form Column */}
@@ -123,7 +213,7 @@ export default function Contact() {
                 <h3 className="text-2xl md:text-3xl font-serif font-medium text-[#0F172A] mb-2">Stuur een bericht</h3>
                 <p className="text-slate-500 mb-8 md:mb-10 text-sm md:text-base">Vul het formulier in en wij nemen zo spoedig mogelijk contact met u op.</p>
 
-                <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="group">
                       <label className="block text-xs font-black uppercase tracking-widest text-slate-400 mb-2 ml-1 group-focus-within:text-[#D4AF37] transition-colors">Volledige Naam</label>
@@ -133,6 +223,10 @@ export default function Contact() {
                         </div>
                         <input 
                           type="text" 
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          required
                           className="w-full bg-slate-50 border border-slate-200 text-[#0F172A] rounded-2xl py-3 md:py-4 pl-12 pr-4 focus:ring-2 focus:ring-[#D4AF37]/20 focus:border-[#D4AF37] outline-none transition-all placeholder:text-slate-300" 
                           placeholder="Uw naam"
                         />
@@ -147,8 +241,14 @@ export default function Contact() {
                         </div>
                         <input 
                           type="tel" 
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          required
+                          pattern="^[+]?[0-9\s-]{10,}$"
+                          title="Voer een geldig telefoonnummer in (minimaal 10 cijfers)"
                           className="w-full bg-slate-50 border border-slate-200 text-[#0F172A] rounded-2xl py-3 md:py-4 pl-12 pr-4 focus:ring-2 focus:ring-[#D4AF37]/20 focus:border-[#D4AF37] outline-none transition-all placeholder:text-slate-300" 
-                          placeholder="06 1234 5678"
+                          placeholder="06 1393 1051"
                         />
                       </div>
                     </div>
@@ -162,8 +262,30 @@ export default function Contact() {
                       </div>
                       <input 
                         type="email" 
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
                         className="w-full bg-slate-50 border border-slate-200 text-[#0F172A] rounded-2xl py-3 md:py-4 pl-12 pr-4 focus:ring-2 focus:ring-[#D4AF37]/20 focus:border-[#D4AF37] outline-none transition-all placeholder:text-slate-300" 
                         placeholder="naam@voorbeeld.nl"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="group">
+                    <label className="block text-xs font-black uppercase tracking-widest text-slate-400 mb-2 ml-1 group-focus-within:text-[#D4AF37] transition-colors">Onderwerp</label>
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-[#D4AF37] transition-colors">
+                        <FileText size={18} />
+                      </div>
+                      <input 
+                        type="text" 
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
+                        required
+                        className="w-full bg-slate-50 border border-slate-200 text-[#0F172A] rounded-2xl py-3 md:py-4 pl-12 pr-4 focus:ring-2 focus:ring-[#D4AF37]/20 focus:border-[#D4AF37] outline-none transition-all placeholder:text-slate-300" 
+                        placeholder="Waar gaat het over?"
                       />
                     </div>
                   </div>
@@ -176,15 +298,28 @@ export default function Contact() {
                       </div>
                       <textarea 
                         rows={4} 
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        required
                         className="w-full bg-slate-50 border border-slate-200 text-[#0F172A] rounded-2xl py-3 md:py-4 pl-12 pr-4 focus:ring-2 focus:ring-[#D4AF37]/20 focus:border-[#D4AF37] outline-none transition-all placeholder:text-slate-300 resize-none" 
                         placeholder="Vertel ons over uw project..."
                       ></textarea>
                     </div>
                   </div>
 
-                  <button className="w-full bg-[#0F172A] text-white py-4 md:py-5 rounded-2xl font-bold tracking-wider hover:bg-[#D4AF37] transition-all duration-300 shadow-xl shadow-[#0F172A]/10 flex items-center justify-center gap-3 group active:scale-[0.98]">
-                    VERSTUUR BERICHT
-                    <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  {error && (
+                    <div className="p-4 bg-red-50 border border-red-100 rounded-xl text-red-600 text-sm flex items-center gap-2">
+                      <X size={16} /> {error}
+                    </div>
+                  )}
+
+                  <button 
+                    disabled={isSubmitting}
+                    className="w-full bg-[#0F172A] text-white py-4 md:py-5 rounded-2xl font-bold tracking-wider hover:bg-[#D4AF37] transition-all duration-300 shadow-xl shadow-[#0F172A]/10 flex items-center justify-center gap-3 group active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? 'VERZENDEN...' : 'VERSTUUR BERICHT'}
+                    {!isSubmitting && <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
                   </button>
                 </form>
               </div>
